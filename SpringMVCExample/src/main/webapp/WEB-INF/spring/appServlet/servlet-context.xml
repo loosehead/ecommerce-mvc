@@ -82,6 +82,15 @@
 		class="com.monyLady.myapp.metiers.PersonManagerImpl">
 		<beans:property name="personDAO" ref="personDAO"></beans:property>
 	</beans:bean>
+	
+	<beans:bean id="productDAO" class="com.monyLady.myapp.dao.ProductDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="productManager"
+		class="com.monyLady.myapp.metiers.ProductManagerImpl">
+		<beans:property name="productDAO" ref="productDAO"></beans:property>
+	</beans:bean>
 
 	
 

@@ -29,6 +29,8 @@
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/customer.jsp</url-pattern>
+		<url-pattern>/admin.jsp</url-pattern>
+		<url-pattern>/SuccessUserImage.jsp</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
     <servlet-name>default</servlet-name>

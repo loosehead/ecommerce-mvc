@@ -14,7 +14,7 @@
 
 		<span class="right">
 			<div id="admin">
-				<a href="login.jsp">S'authentifier en tant que Admin du site</a>
+				<a href="admin.jsp">S'authentifier en tant que Admin du site</a>
 			</div>
 		</span>
 		<div class="clr"></div>
@@ -22,11 +22,7 @@
 
 	<div class="header">
 
-		<span class="right">
-			<div id="admin">
-				<a href="addProduct.jsp">Ajouter un produit</a>
-			</div>
-		</span>
+
 		
 		<div class="clr"></div>
 

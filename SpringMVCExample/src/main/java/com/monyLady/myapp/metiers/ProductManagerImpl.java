@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.monyLady.myapp.dao.ProductDAO;
+import com.monyLady.myapp.ligth.ProductLigth;
 import com.monyLady.myapp.model.Product;
 
 @Service
@@ -39,6 +40,20 @@ public class ProductManagerImpl implements ProductManager {
 		return productDAO.getAllProducts();
 	
 		
+	}
+
+	@Override
+	public Product toProduct(ProductLigth product) {
+		// TODO Auto-generated method stub
+		Product p = new Product(); 
+		p.setDescription(product.getDescription());
+		p.setImagePath(product.getImage().getPath());
+		p.setProductName(product.getProductName());
+		p.setPrice(product.getPrice());
+		p.setModelNumber(product.getModelNumber());
+		p.setQtyOnHand(product.getQtyOnHand());
+		p.setSubcategory(this.productDAO.getSubcategorieByName(product.getCategoryName(), product.getSubcategoryName()));
+		return p;
 	}
 
 

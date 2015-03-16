@@ -273,3 +273,14 @@ ALTER TABLE PERSON
 ;
 
 SET foreign_key_checks = 1;
+
+
+INSERT INTO `category` VALUES (3,'Bijoux'),(2,'Cosmetiques'),(4,'Maroquineries'),(1,'Vêtements');
+
+
+
+INSERT INTO `subcategory` VALUES (1,'Homme',1),(2,'Femmes',1),(3,'Enfants',1),(4,'Homme',2),(5,'Femmes',2),(6,'Enfants',2),(7,'Homme',3),(8,'Femmes',3),(9,'Enfants',3),(10,'Homme',4),(11,'Femmes',4),(12,'Enfants',4);
+
+--
+-- Table structure for table `users`
+--

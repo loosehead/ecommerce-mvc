@@ -8,8 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Magic Admin. Advanced, Beautiful and Customizable Admin
-	Template.</title>
+<title>ECommerce MonyLady</title>
 
 <!-- CSS Reset -->
 <link rel="stylesheet" type="text/css" href="css/resetadmin.css"
@@ -73,7 +72,7 @@
 <!-- JQuery password strength plugin script -->
 <script type="text/javascript" src="js/jquery.pstrength-min.1.2.js"
 	tppabs="http://www.xooom.pl/work/magicadmin/js/jquery.pstrength-min.1.2.js"></script>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <!-- JQuery thickbox plugin script -->
 <script type="text/javascript" src="js/thickbox.js"
 	tppabs="http://www.xooom.pl/work/magicadmin/js/thickbox.js"></script>
@@ -110,7 +109,7 @@
 			});
         </script>
 
-<!-- Initiate tablesorter script -->
+<!-- Initiate tablesorter script 
 <script type="text/javascript">
 			$(document).ready(function() { 
 				$("#myTable") 
@@ -128,7 +127,7 @@
 				}) 
 			.tablesorterPager({container: $("#pager")}); 
 		}); 
-		</script>
+		</script> -->
 <script type="text/javascript">
 $(document).ready(function() {
 	$('a.login-window').click(function() {
@@ -164,12 +163,50 @@ $(document).ready(function() {
 	});
 	});
 </script>
-<!-- Initiate password strength script -->
-<script type="text/javascript">
-			$(function() {
-			$('.password').pstrength();
-			});
-        </script>
+<script>
+
+
+$(document).ready(function() {
+	   
+	  $('#addProduct').submit(function(event) {
+	       
+	      var subcategoryName = $('#subcategoryName').val();
+	      var productName = $('#productName').val();
+	      var modelNumber = $('#modelNumber').val();
+	      var description = $('#description').val();
+	      var qtyOnHand = $('#qtyOnHand').val();
+	      var image = $('#image').val();
+	      var price = $('#price').val();
+	      var json = { "image" : image, "productName" : productName, "modelNumber" : modelNumber, "description" : description, "description" : description, "price": price};
+	       
+	    $.ajax({
+	        url: $("#").attr( "action"),
+	        data: JSON.stringify(json),
+	        type: "POST",
+	         
+	        beforeSend: function(xhr) {
+	            xhr.setRequestHeader("Accept", "application/json");
+	            xhr.setRequestHeader("Content-Type", "application/json");
+	        },
+	        success: function(product) {
+	            var respContent = "";
+	             
+	            respContent += "<span class='success'>Smartphone was created: [";
+	            respContent += product.producer + " : ";
+	            respContent += product.description + " : " ;
+	            respContent += product.price + "]</span>";
+	             
+	            $("#sPhoneFromResponse").html(respContent);         
+	        }
+	    });
+	      
+	    event.preventDefault();
+	  });
+	    
+	});
+
+
+</script>
 </head>
 <body>
 	<!-- Header -->
@@ -1201,18 +1238,56 @@ $(document).ready(function() {
 	<div id="login-box" class="login-popup">
 		<a href="#" class="close"><img src="images/close_pop.png"
 			class="btn_close" title="Close Window" alt="Close" /></a>
-		<form method="post" class="signin" action="#">
+		<form method="post" class="signin" action="/SpringMVCExample/SuccessUserImage.jsp">
 			<fieldset class="textbox">
-				<label class="username"> <span>Username or email</span> <input
-					id="username" name="username" value="" type="text"
-					autocomplete="on" placeholder="Username"></label> <label
-					class="password"> <span>Password</span> <input
-					id="password" name="password" value="" type="password"
-					placeholder="Password"></label>
-				<button class="submit buttonj" type="button">Sign in</button>
-				<p>
-					<a class="forgot" href="#">Forgot your password?</a>
-				</p>
+				<label class="username"> 
+					<span>Categorie</span>
+					<select name="categoryName">
+						<option value="Bijoux">Bijoux</option>
+						<option selected="selected" value="Cosmetiques">Cosmetiques</option>
+						<option value="Vetements">Vetements</option>
+						<option value="Maroquineries">Maroquineries</option>
+					</select>
+				</label>
+				<label class="username">
+					<span>Sous-Categorie</span>
+					<select name="subcategoryName">
+								<option value="Hommes">Hommes</option>
+								<option selected="selected" value="Femmes">Femmes</option>
+								<option value="Enfants">Enfants</option>
+							</select>
+				 </label>
+				 <label class="username">
+					<span>Nom du Produit</span>
+					<input name="productName">
+				 </label>
+				 
+				 <label class="username">
+					<span>Price</span>
+					<input name="price">
+				 </label>
+				 
+				 <label class="username">
+					<span>Description:</span>
+					<input name="description"></input>
+				 </label>
+				 
+				 <label class="username">
+					<span>Numéro Modele:</span>
+					<input name="modelNumber"></input>
+				 </label>
+				 
+				 <label class="username">
+					<span>Quantité:</span>
+					<input name="qtyOnHand"></input>
+				 </label>
+				 
+				 <label class="username">
+					<span>Image:</span>
+					<input type="file" name="image"></input>
+				 </label>
+				
+				<button type="submit" class="submit buttonj" >Create</button>
 			</fieldset>
 		</form>
 	</div>

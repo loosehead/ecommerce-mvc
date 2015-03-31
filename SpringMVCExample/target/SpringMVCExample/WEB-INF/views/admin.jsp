@@ -72,7 +72,7 @@
 <!-- JQuery password strength plugin script -->
 <script type="text/javascript" src="js/jquery.pstrength-min.1.2.js"
 	tppabs="http://www.xooom.pl/work/magicadmin/js/jquery.pstrength-min.1.2.js"></script>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 <!-- JQuery thickbox plugin script -->
 <script type="text/javascript" src="js/thickbox.js"
 	tppabs="http://www.xooom.pl/work/magicadmin/js/thickbox.js"></script>
@@ -109,7 +109,7 @@
 			});
         </script>
 
-<!-- Initiate tablesorter script -->
+<!-- Initiate tablesorter script 
 <script type="text/javascript">
 			$(document).ready(function() { 
 				$("#myTable") 
@@ -127,7 +127,7 @@
 				}) 
 			.tablesorterPager({container: $("#pager")}); 
 		}); 
-		</script>
+		</script> -->
 <script type="text/javascript">
 $(document).ready(function() {
 	$('a.login-window').click(function() {
@@ -163,12 +163,108 @@ $(document).ready(function() {
 	});
 	});
 </script>
-<!-- Initiate password strength script -->
+<script>
+
+
+$(document).ready(function() {
+	   
+	  $('#addProduct').submit(function(event) {
+	       
+	      var subcategoryName = $('#subcategoryName').val();
+	      var productName = $('#productName').val();
+	      var modelNumber = $('#modelNumber').val();
+	      var description = $('#description').val();
+	      var qtyOnHand = $('#qtyOnHand').val();
+	      var image = $('#image').val();
+	      var price = $('#price').val();
+	      var json = { "image" : image, "productName" : productName, "modelNumber" : modelNumber, "description" : description, "description" : description, "price": price};
+	       
+	    $.ajax({
+	        url: $("#").attr( "action"),
+	        data: JSON.stringify(json),
+	        type: "POST",
+	         
+	        beforeSend: function(xhr) {
+	            xhr.setRequestHeader("Accept", "application/json");
+	            xhr.setRequestHeader("Content-Type", "application/json");
+	        },
+	        success: function(product) {
+	            var respContent = "";
+	             
+	            respContent += "<span class='success'>Smartphone was created: [";
+	            respContent += product.producer + " : ";
+	            respContent += product.description + " : " ;
+	            respContent += product.price + "]</span>";
+	             
+	            $("#sPhoneFromResponse").html(respContent);         
+	        }
+	    });
+	      
+	    event.preventDefault();
+	  });
+	    
+	});
+
+
+</script>
+
+
+<script src="js/jquery/jquery-1.6.4.min.js" ></script>
+<script src="js/jquery/jquery-ui-1.8.16.custom.min.js" ></script>
+<link rel="stylesheet" href="js/jquery/jquery-ui-1.8.16.custom.css" type="text/css" media="screen"> 
+<script src="js/autocomplete/autocomplete.js" ></script>
+<link rel="stylesheet" href="js/autocomplete/autocomplete.css" type="text/css" media="screen">
+<script src="js/openflashchart/js/swfobject.js"></script>
+<script src="js/openflashchart/js/json/json2.js"></script>
+<script src="js/openflashchart/js-ofc-library/ofc.js"></script>
+<script src="js/openflashchart/js-ofc-library/open_flash_chart.min.js"></script>
+<script src="js/demo.js" ></script>
 <script type="text/javascript">
-			$(function() {
-			$('.password').pstrength();
-			});
-        </script>
+			window.onload = function() { 
+				// you can use "datasource/demo.php" if you have PHP installed, to get live data from the demo.csv file
+				//editableGrid.onloadXML("datasource/demo.xml"); 
+			
+			
+			
+			editableGrid = new EditableGrid("DemoGridJSON"); 
+			editableGrid.tableLoaded = function() { this.renderGrid("tablecontent", "testgrid"); };
+			grid= {"metadata":[
+			               	{"name":"name","label":"NAME","datatype":"string","editable":true},
+			            	{"name":"firstname","label":"FIRSTNAME","datatype":"string","editable":true},
+			            	{"name":"age","label":"AGE","datatype":"integer","editable":true},
+			            	{"name":"height","label":"HEIGHT","datatype":"double(m,2)","editable":true},
+			            	{"name":"country","label":"COUNTRY","datatype":"string","editable":true,"values":
+			            		{
+			            			"Europe":{"be":"Belgium","fr":"France","uk":"Great-Britain","nl":"Nederland"},
+			            			"America":{"br":"Brazil","ca":"Canada","us":"USA"},
+			            			"Africa":{"ng":"Nigeria","za":"South-Africa","zw":"Zimbabwe"}}
+			            		},
+			            	{"name":"email","label":"EMAIL","datatype":"email","editable":true},
+			            	{"name":"freelance","label":"FREELANCE","datatype":"boolean","editable":true},
+			            	{"name":"lastvisit","label":"LAST VISIT","datatype":"date","editable":true}
+			            ],
+
+			            "data":[
+			            	{"id":1, "values":{"country":"uk","age":33,"name":"Duke","firstname":"Patience","height":1.842,"email":"patience.duke@gmail.com","lastvisit":"11\/12\/2002"}},
+			            	{"id":2, "values":["Rogers","Denise",59,1.627,"us","rogers.d@gmail.com","","07\/05\/2003"]},
+			            	{"id":3, "values":{"name":"Dujardin","firstname":"Antoine","age":21,"height":1.73,"country":"fr","email":"felix.compton@yahoo.fr","freelance":true,"lastvisit":"21\/02\/1999"}},
+			            	{"id":4, "values":{"name":"Conway","firstname":"Coby","age":47,"height":1.96,"country":"za","email":"coby@conwayinc.com","freelance":true,"lastvisit":"01\/12\/2007"}},
+			            	{"id":5, "values":{"name":"Shannon","firstname":"Rana","age":24,"height":1.56,"country":"nl","email":"ranna.shannon@hotmail.com","freelance":false,"lastvisit":"07\/10\/2009"}},
+			            	{"id":6, "values":{"name":"Benton","firstname":"Jasmine","age":61,"height":1.71,"country":"ca","email":"jasmine.benton@yahoo.com","freelance":false,"lastvisit":"13\/01\/2009"}},
+			            	{"id":7, "values":{"name":"Belletoise","firstname":"André","age":31,"height":1.84,"country":"be","email":"belletoise@kiloutou.be","freelance":true,"lastvisit":""}},
+			            	{"id":8, "values":{"name":"Santa-Maria","firstname":"Martin","age":37,"height":1.80,"country":"br","email":"martin.sm@gmail.com","freelance":false,"lastvisit":"12\/06\/1995"}},
+			            	{"id":9, "values":{"name":"Dieumerci","firstname":"Amédé","age":37,"height":1.81,"country":"ng","email":"dieumerci@gmail.com","freelance":true,"lastvisit":"05\/07\/2009"}},
+			            	{"id":10,"values":{"name":"Morin","firstname":"Wanthus","age":46,"height":1.77,"country":"zw","email":"morin.x@yahoo.json.com","freelance":false,"lastvisit":"04\/03\/2004"}}
+			            ]}
+			editableGrid.loadJSONFromString(grid);
+			editableGrid.renderGrid("tablecontent", "testgrid");
+		 
+			};	
+			
+</script>
+		
+
+
 </head>
 <body>
 	<!-- Header -->
@@ -312,580 +408,61 @@ $(document).ready(function() {
 
 
 
-		<div class="grid_12">
+<div id="wrap">
+		<h1>EditableGrid Demo - Grid with pagination<a href="../index.html">Back to menu</a></h1> 
+		
+			<!-- Feedback message zone -->
+			<div id="message"></div>
 
-			<!-- Notification boxes -->
-			<span class="notification n-success">Success notification.</span> <span
-				class="notification n-information">Information notification.</span>
-
-			<span class="notification n-attention">Attention notification.</span>
-
-			<span class="notification n-error">Error notification.</span>
-
-
-			<div class="bottom-spacing">
-
-				<!-- Button -->
-				<div class="float-right">
-					<a href="" class="button"> <span>New Article <img
-							src="images/plus-small.gif"
-							tppabs="http://www.xooom.pl/work/magicadmin/images/plus-small.gif"
-							width="12" height="9" alt="New article" /></span>
-					</a>
-				</div>
-
-				<!-- Table records filtering -->
-				Filter: <select class="input-short">
-					<option value="1" selected="selected">Select filter</option>
-					<option value="2">Created last week</option>
-					<option value="3">Created last month</option>
-					<option value="4">Edited last week</option>
-					<option value="5">Edited last month</option>
+			<!--  Number of rows per page and bars in chart -->
+			<div id="pagecontrol">
+				<label for="pagecontrol">Rows per page: </label>
+				<select id="pagesize" name="pagesize">
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+					<option value="25">25</option>
+					<option value="30">30</option>
+					<option value="40">40</option>
+					<option value="50">50</option>
 				</select>
-
+				&nbsp;&nbsp;
+				<label for="barcount">Bars in chart: </label>
+				<select id="barcount" name="barcount">
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+					<option value="25">25</option>
+					<option value="30">30</option>
+					<option value="40">40</option>
+					<option value="50">50</option>
+				</select>	
 			</div>
-
-
-			<!-- Example table -->
-			<div class="module">
-				<h2>
-					<span>Sample table</span>
-				</h2>
-
-				<div class="module-table-body">
-					<form action="">
-						<table id="myTable" class="tablesorter">
-							<thead>
-								<tr>
-									<th style="width: 5%">#</th>
-									<th style="width: 20%">Title</th>
-									<th style="width: 21%">Author</th>
-									<th style="width: 13%">Category</th>
-									<th style="width: 13%">Pages</th>
-									<th style="width: 13%">Price</th>
-									<th style="width: 15%"></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="align-center">1</td>
-									<td><a href="">Don Quixote</a></td>
-									<td>Cervantes</td>
-									<td>adventure</td>
-									<td>992</td>
-									<td>$11.55</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">2</td>
-									<td><a href="">Lord Jim</a></td>
-									<td>Joseph Conrad</td>
-									<td>thriller</td>
-									<td>400</td>
-									<td>$6.95</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/minus-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/minus-circle.gif"
-											width="16" height="16" alt="not published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">3</td>
-									<td><a href="">Inferno</a></td>
-									<td>Dante</td>
-									<td>drama</td>
-									<td>528</td>
-									<td>$8.76</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/minus-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/minus-circle.gif"
-											width="16" height="16" alt="not published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">4</td>
-									<td><a href="">David Copperfield</a></td>
-									<td>Charles Dickens</td>
-									<td>literary</td>
-									<td>1024</td>
-									<td>$9.00</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">5</td>
-									<td><a href="">Crime and Punishment</a></td>
-									<td>Fyodor Dostoevsky</td>
-									<td>world literature</td>
-									<td>592</td>
-									<td>$10.85</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">6</td>
-									<td><a href="">Faust</a></td>
-									<td>Johann Wolfgang von Goethe</td>
-									<td>drama</td>
-									<td>464</td>
-									<td>$5.95</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">7</td>
-									<td><a href="">Lord of the Flies</a></td>
-									<td>William Golding</td>
-									<td>drama</td>
-									<td>190</td>
-									<td>$15.88</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/minus-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/minus-circle.gif"
-											width="16" height="16" alt="not published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">8</td>
-									<td><a href="">A Farewell To Arms</a></td>
-									<td>Ernest Hemingway</td>
-									<td>romance</td>
-									<td>304</td>
-									<td>$22.80</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">9</td>
-									<td><a href="">The Old Man and the Sea</a></td>
-									<td>Ernest Hemingway</td>
-									<td>adventure</td>
-									<td>112</td>
-									<td>$4.63</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/minus-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/minus-circle.gif"
-											width="16" height="16" alt="not published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">10</td>
-									<td><a href="">The Snows of Kilimanjaro</a></td>
-									<td>Ernest Hemingway</td>
-									<td>adventure</td>
-									<td>144</td>
-									<td>$19.00</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">11</td>
-									<td><a href="">The Sun Also Rises</a></td>
-									<td>Ernest Hemingway</td>
-									<td>drama</td>
-									<td>256</td>
-									<td>$10.20</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">12</td>
-									<td><a href="">The Metamorphosis</a></td>
-									<td>Franz Kafka</td>
-									<td>existentialism</td>
-									<td>94</td>
-									<td>$9.95</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/minus-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/minus-circle.gif"
-											width="16" height="16" alt="not published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">13</td>
-									<td><a href="">One Flew Over the Cuckoo's Nest</a></td>
-									<td>Ken Kesey</td>
-									<td>thriller</td>
-									<td>288</td>
-									<td>$10.88</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">14</td>
-									<td><a href="">Moby Dick</a></td>
-									<td>Herman Melville</td>
-									<td>world literature</td>
-									<td>464</td>
-									<td>$5.00</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/minus-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/minus-circle.gif"
-											width="16" height="16" alt="not published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">15</td>
-									<td><a href="">The Crucible</a></td>
-									<td>Arthur Miller</td>
-									<td>drama</td>
-									<td>176</td>
-									<td>$10.01</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">16</td>
-									<td><a href="">Death of a Salesman</a></td>
-									<td>Arthur Miller</td>
-									<td>drama</td>
-									<td>448</td>
-									<td>$12.24</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">17</td>
-									<td><a href="">Paradise Lost</a></td>
-									<td>John Milton</td>
-									<td>christianity</td>
-									<td>512</td>
-									<td>$9.24</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/minus-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/minus-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">18</td>
-									<td><a href="">Animal Farm</a></td>
-									<td>George Orwell</td>
-									<td>criticism &amp; theory</td>
-									<td>113</td>
-									<td>$9.85</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/minus-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/minus-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">19</td>
-									<td><a href="">Hamlet</a></td>
-									<td>William Shakespeare</td>
-									<td>tragedy</td>
-									<td>400</td>
-									<td>$5.99</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">20</td>
-									<td><a href="">Julius Caesar</a></td>
-									<td>William Shakespeare</td>
-									<td>politics</td>
-									<td>288</td>
-									<td>$5.99</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-								<tr>
-									<td class="align-center">21</td>
-									<td><a href="">King Lear</a></td>
-									<td>William Shakespeare</td>
-									<td>tragedy</td>
-									<td>384</td>
-									<td>$5.99</td>
-									<td><input type="checkbox" /> <a href=""><img
-											src="images/tick-circle.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/tick-circle.gif"
-											width="16" height="16" alt="published" /></a> <a href=""><img
-											src="images/pencil.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/pencil.gif"
-											width="16" height="16" alt="edit" /></a> <a href=""><img
-											src="images/balloon.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/balloon.gif"
-											width="16" height="16" alt="comments" /></a> <a href=""><img
-											src="images/bin.gif"
-											tppabs="http://www.xooom.pl/work/magicadmin/images/bin.gif"
-											width="16" height="16" alt="delete" /></a></td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-					<div class="pager" id="pager">
-						<form action="">
-							<div>
-								<img class="first" src="images/arrow-stop-180.gif"
-									tppabs="http://www.xooom.pl/work/magicadmin/images/arrow-stop-180.gif"
-									alt="first" /> <img class="prev" src="images/arrow-180.gif"
-									tppabs="http://www.xooom.pl/work/magicadmin/images/arrow-180.gif"
-									alt="prev" /> <input type="text"
-									class="pagedisplay input-short align-center" /> <img
-									class="next" src="images/arrow.gif"
-									tppabs="http://www.xooom.pl/work/magicadmin/images/arrow.gif"
-									alt="next" /> <img class="last" src="images/arrow-stop.gif"
-									tppabs="http://www.xooom.pl/work/magicadmin/images/arrow-stop.gif"
-									alt="last" /> <select class="pagesize input-short align-center">
-									<option value="10" selected="selected">10</option>
-									<option value="20">20</option>
-									<option value="30">30</option>
-									<option value="40">40</option>
-								</select>
-							</div>
-						</form>
-					</div>
-					<div class="table-apply">
-						<form action="">
-							<div>
-								<span>Apply action to selected:</span> <select
-									class="input-medium">
-									<option value="1" selected="selected">Select action</option>
-									<option value="2">Publish</option>
-									<option value="3">Unpublish</option>
-									<option value="4">Delete</option>
-								</select>
-							</div>
-						</form>
-					</div>
-					<div style="clear: both"></div>
-				</div>
-				<!-- End .module-table-body -->
-			</div>
-			<!-- End .module -->
-
-
-			<div class="pagination">
-				<a href="" class="button"><span><img
-						src="images/arrow-stop-180-small.gif"
-						tppabs="http://www.xooom.pl/work/magicadmin/images/arrow-stop-180-small.gif"
-						height="9" width="12" alt="First" /> First</span></a> <a href=""
-					class="button"><span><img
-						src="images/arrow-180-small.gif"
-						tppabs="http://www.xooom.pl/work/magicadmin/images/arrow-180-small.gif"
-						height="9" width="12" alt="Previous" /> Prev</span></a>
-				<div class="numbers">
-					<span>Page:</span> <a href="">1</a> <span>|</span> <a href="">2</a>
-					<span>|</span> <span class="current">3</span> <span>|</span> <a
-						href="">4</a> <span>|</span> <a href="">5</a> <span>|</span> <a
-						href="">6</a> <span>|</span> <a href="">7</a> <span>|</span> <span>...</span>
-					<span>|</span> <a href="">99</a>
-				</div>
-				<a href="" class="button"><span>Next <img
-						src="images/arrow-000-small.gif"
-						tppabs="http://www.xooom.pl/work/magicadmin/images/arrow-000-small.gif"
-						height="9" width="12" alt="Next" /></span></a> <a href=""
-					class="button last"><span>Last <img
-						src="images/arrow-stop-000-small.gif"
-						tppabs="http://www.xooom.pl/work/magicadmin/images/arrow-stop-000-small.gif"
-						height="9" width="12" alt="Last" /></span></a>
-				<div style="clear: both;"></div>
-			</div>
-
-
-
-
+		
+			<!-- Grid filter -->
+			<label for="filter">Filter :</label>
+			<input type="text" id="filter"/>
+		
+			<!-- Grid contents -->
+			<div id="tablecontent"></div>
+		
+			<!-- Paginator control -->
+			<div id="paginator"></div>
+		
+			<!-- Edition zone (to demonstrate the "fixed" editor mode) -->
+			<div id="edition"></div>
+			
+			<!-- Charts zone -->
+			<div id="barchartcontent"></div>
+			<div id="piechartcontent"></div>
+			
 		</div>
-		<!-- End .grid_12 -->
 
+
+
+		
 		<!-- Categories list -->
 		<div class="grid_6">
 
@@ -1200,18 +777,56 @@ $(document).ready(function() {
 	<div id="login-box" class="login-popup">
 		<a href="#" class="close"><img src="images/close_pop.png"
 			class="btn_close" title="Close Window" alt="Close" /></a>
-		<form method="post" class="signin" action="#">
+		<form method="post" class="signin" action="/SpringMVCExample/SuccessUserImage.jsp">
 			<fieldset class="textbox">
-				<label class="username"> <span>Username or email</span> <input
-					id="username" name="username" value="" type="text"
-					autocomplete="on" placeholder="Username"></label> <label
-					class="password"> <span>Password</span> <input
-					id="password" name="password" value="" type="password"
-					placeholder="Password"></label>
-				<button class="submit buttonj" type="button">Sign in</button>
-				<p>
-					<a class="forgot" href="#">Forgot your password?</a>
-				</p>
+				<label class="username"> 
+					<span>Categorie</span>
+					<select name="categoryName">
+						<option value="Bijoux">Bijoux</option>
+						<option selected="selected" value="Cosmetiques">Cosmetiques</option>
+						<option value="Vetements">Vetements</option>
+						<option value="Maroquineries">Maroquineries</option>
+					</select>
+				</label>
+				<label class="username">
+					<span>Sous-Categorie</span>
+					<select name="subcategoryName">
+								<option value="Hommes">Hommes</option>
+								<option selected="selected" value="Femmes">Femmes</option>
+								<option value="Enfants">Enfants</option>
+							</select>
+				 </label>
+				 <label class="username">
+					<span>Nom du Produit</span>
+					<input name="productName">
+				 </label>
+				 
+				 <label class="username">
+					<span>Price</span>
+					<input name="price">
+				 </label>
+				 
+				 <label class="username">
+					<span>Description:</span>
+					<input name="description"></input>
+				 </label>
+				 
+				 <label class="username">
+					<span>Numéro Modele:</span>
+					<input name="modelNumber"></input>
+				 </label>
+				 
+				 <label class="username">
+					<span>Quantité:</span>
+					<input name="qtyOnHand"></input>
+				 </label>
+				 
+				 <label class="username">
+					<span>Image:</span>
+					<input type="file" name="image"></input>
+				 </label>
+				
+				<button type="submit" class="submit buttonj" >Create</button>
 			</fieldset>
 		</form>
 	</div>

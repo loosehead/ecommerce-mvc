@@ -917,6 +917,13 @@ form.signin input::-webkit-input-placeholder { color:#bbb; text-shadow:0 0 2px #
 
 .button:hover { background:#ddd; }
 	
-	
+
+
+
+table.testgrid { border-collapse: collapse; border: 1px solid #CCB; width: 800px; }
+table.testgrid td, table.testgrid th { padding: 5px; border: 1px solid #E0E0E0; }
+table.testgrid th { background: #E5E5E5; text-align: left; }
+input.invalid { background: red; color: #FDFDFD; }
+		
 	
 	

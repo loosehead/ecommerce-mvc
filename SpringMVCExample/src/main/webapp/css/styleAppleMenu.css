@@ -41,7 +41,7 @@ h1 small{ font-size: 24px; display: block; color: #636363; }*/
 #content p a:hover { text-decoration:underline; }
 
 /* APPLE STYLE NAVIGATION MENU */
-#appleNav { margin:40px 0; list-style:none;
+#appleNav { margin:40px 205; list-style:none;
 
     /* Lucinda Grande is the font used on the website from Apple. */
     font-family: "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif; letter-spacing:-0.5px; font-size:13px;
@@ -51,7 +51,7 @@ h1 small{ font-size: 24px; display: block; color: #636363; }*/
 
     /* We want to add the shadow to the complete navigation menu. In order to do that, we'll need to set
     the correct width and height, and also the correct borders, in order to create the perfect drop shadow */
-    width:980px; height:34px;
+    width:995px; height:34px;
     
     -moz-border-radius:4px;
     -webkit-border-radius:4px;
@@ -62,7 +62,7 @@ h1 small{ font-size: 24px; display: block; color: #636363; }*/
     box-shadow: 0 3px 4px #8b8b8b;
 }
 
-#appleNav li { display:block; float:left; border-right:1px solid #5d5d5d; border-left:1px solid #929292; width:105px; height:34px; border-bottom:1px solid #575757; border-top:1px solid #797979;
+#appleNav li { display:block; float:left; border-right:1px solid #5d5d5d; border-left:1px solid #929292; width:143px; height:34px; border-bottom:1px solid #575757; border-top:1px solid #797979;
 
     /* Gradient backgrounds for the buttons. Generated using http://gradients.glrzad.com/ */
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #787878), color-stop(0.5, #5E5E5E), color-stop(0.51, #707070), color-stop(1, #838383));
@@ -93,7 +93,7 @@ h1 small{ font-size: 24px; display: block; color: #636363; }*/
     box-shadow: inset 0 1px 2px 2px #000;
 }
 
-#appleNav li a { color:white; text-decoration:none; text-align:center; display:block; line-height:34px; outline:none; }
+#appleNav li a { color:white; text-decoration:none; text-align:center; display:block; line-height:34px; outline:none; width:150px; }
 
 /* Styling of the search field */
 #appleNav form input { width:76px; height:20px; margin-left:9px; margin-top:8px; border:none; padding-left:20px; padding-right:10px; color:#eee;
@@ -121,7 +121,7 @@ We also remove the borders, since they don't need them. */
     -webkit-border-radius:4px 0 0 4px;
     border-radius:4px 0 0 4px;
     
-    border-left:none;
+    /*border-left:none;*/
 }
 
 /* The first child image - the logo - has to be centered. Because of the image dimensions, we manually need to shift it a bit. */
@@ -259,4 +259,141 @@ font: 10px/1.5 helvetica,arial,san-serif;
 	background: transparent;
 	text-shadow: 1px 1px 10px rgba(89,22,20,0.6);
 	color: #581514;
+}
+
+
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  float: right;
+  background: #eee;
+  border-bottom: 1px solid #fff;
+  border-radius: 3px;    
+}
+
+nav li {
+  float: left;          
+}
+
+nav #login {
+  border-right: 1px solid #ddd;
+  box-shadow: 1px 0 0 #fff;  
+}
+
+nav #login-trigger,
+nav #signup a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  padding: 0 13.5px;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 #fff; 
+}
+
+nav #signup a {
+  border-radius: 0 3px 3px 0;
+}
+
+nav #login-trigger {
+  border-radius: 3px 0 0 3px;
+}
+
+nav #login-trigger:hover,
+nav #login .active,
+nav #signup a:hover {
+  background: #fff;
+}
+
+nav #login-content {
+  display: none;
+  position: absolute;
+  top: 24px;
+  right: 0;
+  z-index: 999;    
+  background: #fff;
+  background-image: linear-gradient(top, #fff, #eee);  
+  padding: 15px;
+  box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+  border-radius: 3px 0 3px 3px;
+}
+
+nav li #login-content {
+  right: 0;
+  width: 250px;  
+}
+
+/*--------------------*/
+
+#inputs input {
+  background: #f1f1f1;
+  padding: 6px 5px;
+  margin: 0 0 5px 0;
+  width: 238px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #ccc inset;
+}
+
+#inputs input:focus {
+  background-color: #fff;
+  border-color: #e8c291;
+  outline: none;
+  box-shadow: 0 0 0 1px #e8c291 inset;
+}
+
+/*--------------------*/
+
+#login #actions {
+  margin: 10px 0 0 0;
+}
+
+#login #submit {    
+  background-color: #d14545;
+  background-image: linear-gradient(top, #e97171, #d14545);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+  border: 1px solid #7e1515;
+  float: left;
+  height: 30px;
+  padding: 0;
+  width: 100px;
+  cursor: pointer;
+  font: bold 14px Arial, Helvetica;
+  color: #fff;
+}
+
+#login #submit:hover,
+#login #submit:focus {    
+  background-color: #e97171;
+  background-image: linear-gradient(top, #d14545, #e97171);
+} 
+
+#login #submit:active {   
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;   
+}
+
+#login #submit::-moz-focus-inner {
+  border: none;
+}
+
+#login label {
+  float: right;
+  line-height: 30px;
+}
+
+#login label input {
+  position: relative;
+  top: 2px;
+  right: 2px;
 }

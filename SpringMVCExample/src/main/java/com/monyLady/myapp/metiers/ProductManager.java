@@ -12,5 +12,6 @@ public interface ProductManager {
 	//This method return list product in database
 	public List<Product> getAllProducts();
 	public Product toProduct(ProductLigth product);
+	public ProductLigth toProductLight(Product p);
 
 }

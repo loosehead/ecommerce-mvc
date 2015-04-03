@@ -1,5 +1,6 @@
 package com.monyLady.myapp.metiers;
 
+import java.io.File;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -53,6 +54,21 @@ public class ProductManagerImpl implements ProductManager {
 		p.setModelNumber(product.getModelNumber());
 		p.setQtyOnHand(product.getQtyOnHand());
 		p.setSubcategory(this.productDAO.getSubcategorieByName(product.getCategoryName(), product.getSubcategoryName()));
+		return p;
+	}
+
+	@Override
+	public ProductLigth toProductLight(Product product) {
+		// TODO Auto-generated method stub
+		ProductLigth p = new ProductLigth(); 
+		p.setDescription(product.getDescription());
+		p.setImage(new File(product.getImagePath()));
+		p.setProductName(product.getProductName());
+		p.setPrice(product.getPrice());
+		p.setModelNumber(product.getModelNumber());
+		p.setQtyOnHand(product.getQtyOnHand());
+		p.setSubcategoryName(product.getSubcategory().getSubcategoryName());
+		p.setCategoryName(product.getSubcategory().getCategory().getCategoryName());
 		return p;
 	}
 

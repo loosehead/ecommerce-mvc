@@ -101,7 +101,7 @@ public class Product implements java.io.Serializable {
 		this.productId = productId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "subcategoryID", nullable = false)
 	public Subcategory getSubcategory() {
 		return this.subcategory;

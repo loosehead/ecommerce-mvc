@@ -85,7 +85,7 @@ EditableGrid.prototype.initializeGrid = function()
 			render: function(cell, value) { cell.innerHTML = value ? "<img src='" + image("flags/" + value.toLowerCase() + ".png") + "' alt='" + value + "'/>" : ""; }
 		})); 
 
-		// use autocomplete on firstname
+		/*/ use autocomplete on firstname
 		setCellEditor("firstname", new AutocompleteCellEditor({
 			suggestions: ['Leonard','Kirsten','Scott','Wayne','Stephanie','Astra','Charissa','Quin','Baxter','Jaime',
 			              'Isabella','Slade','Ariana','Mohammad','Candice','Leslie','Jamal','Shay','Duncan','Neil',
@@ -100,7 +100,7 @@ EditableGrid.prototype.initializeGrid = function()
 			              'Matthew', 'Anthony', 'Claude', 'Louis', 'Marcello', 'Bernard', 'Betrand', 'Jessica', 'Patrick', 
 			              'Robert', 'John', 'Jack', 'Duke', 'Denise', 'Antoine', 'Coby', 'Rana', 'Jasmine', 'André', 
 			              'Martin', 'Amédé', 'Wanthus']
-		}));
+		}));*/
 
 		// add a cell validator to check that the age is in [15, 100[
 		addCellValidator("age", new CellValidator({ 
@@ -176,6 +176,8 @@ EditableGrid.prototype.onloadJSON = function(url)
 
 	// load JSON URL
 	this.loadJSON(url);
+	//this.loadJSONFromString(url); 
+	//editableGrid.renderGrid("tablecontent", "testgrid", "tableid");
 };
 
 EditableGrid.prototype.onloadHTML = function(tableId) 

@@ -31,7 +31,7 @@
 		<url-pattern>/customer.jsp</url-pattern>
 		<url-pattern>/admin.jsp</url-pattern>
 		<url-pattern>/SuccessUserImage.jsp</url-pattern>
-		<url-pattern>/grid.json</url-pattern>
+		<url-pattern>/demo.json</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
     <servlet-name>default</servlet-name>
@@ -40,6 +40,10 @@
 <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>*.js</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.swf</url-pattern>
 </servlet-mapping>
 <servlet-mapping>
     <servlet-name>default</servlet-name>

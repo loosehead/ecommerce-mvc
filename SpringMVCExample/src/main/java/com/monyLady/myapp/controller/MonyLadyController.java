@@ -1,9 +1,18 @@
 package com.monyLady.myapp.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -24,6 +33,8 @@ public class MonyLadyController {
 
 	private PersonManager personManager;
 	private ProductManager productManager;
+	@Autowired
+    ServletContext context;
 
 	private static Logger logger = Logger.getLogger(MonyLadyController.class);
 
@@ -75,6 +86,36 @@ public class MonyLadyController {
 	
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String redirect(Model model) {
+		
+		List<Product> products= this.productManager.getAllProducts();
+		List<ProductLigth> productsLights = new ArrayList<ProductLigth>();
+		for (Product p : products){
+			productsLights.add(productManager.toProductLight(p));
+		}
+		String path =""; 
+		try {
+			System.out.println(context.getResource("/WEB-INF/js/demo.json").getPath());
+			path = context.getResource("/WEB-INF/js/demo.json").getPath(); 
+		} catch (MalformedURLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+		
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			mapper.writeValue(new File(path), productsLights);
+			System.out.println(mapper.writeValueAsString(productsLights));
+		} catch (JsonGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "admin";
 	}
 	// M�thode pour l'ajout d'un produit

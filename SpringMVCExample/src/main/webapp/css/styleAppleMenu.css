@@ -71,7 +71,7 @@ h1 small{ font-size: 24px; display: block; color: #636363; }*/
 }
 
 /* Set the states when hovering, except for the last item in the list (the search bar), since it doesn't need to change */
-#appleNav li:not(:last-child):hover {
+#appleNav li:not(.appleclass):hover {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3F3F3F), color-stop(0.5, #383838), color-stop(0.51, #434343), color-stop(1, #555555));
     background-image: -moz-linear-gradient(center bottom, #3F3F3F 0%, #383838 50%, #434343 51%, #555555 100% );
     background-color:#383838; /* Fallback */
@@ -83,7 +83,7 @@ h1 small{ font-size: 24px; display: block; color: #636363; }*/
 }
 
 /* When the user clicks the button, we simply change the box inset (compared to the "hover") */
-#appleNav li:not(:last-child):active {
+#appleNav li:not(.appleclass):active {
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3F3F3F), color-stop(0.5, #383838), color-stop(0.51, #434343), color-stop(1, #555555));
     background-image: -moz-linear-gradient(center bottom, #3F3F3F 0%, #383838 50%, #434343 51%, #555555 100% );
     background-color:#383838; /* Fallback */
@@ -113,6 +113,13 @@ h1 small{ font-size: 24px; display: block; color: #636363; }*/
     -webkit-box-shadow: inset 0 2px 1px 1px #363636;
     box-shadow: inset 0 2px 1px 1px #363636;
 }
+#appleNav li ul li{
+        display: none;
+    }
+#appleNav li:hover li{
+        display: block; /* display the dropdown */
+    }
+
 
 /* Rounded corner for the first in last item. Shorthand: Top left, Top right, Bottom right, Bottom left.
 We also remove the borders, since they don't need them. */
@@ -129,7 +136,7 @@ We also remove the borders, since they don't need them. */
    vertical-align:middle; margin-top:-2px;
 }
 
-#appleNav li:last-child {
+#appleNav li.appleclass {
     -moz-border-radius:0 4px 4px 0;
     -webkit-border-radius:0 4px 4px 0;
     border-radius:0 4px 4px 0;

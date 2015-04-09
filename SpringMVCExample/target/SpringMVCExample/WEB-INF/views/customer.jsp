@@ -13,11 +13,12 @@
 <link rel="stylesheet" type="text/css" href="css/stylesadmin.css"
 	tppabs="http://www.xooom.pl/work/magicadmin/css/styles.css"
 	media="screen" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-		<script src="js/jquery.ndd.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="js/jquery.ndd.js"></script>
 
-		<script src="js/dragdrop.js"></script>
-		<script src="js/displayProducts.js"></script>
+<script src="js/dragdrop.js"></script>
+<script src="js/displayProducts.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	  $('#login-trigger').click(function(){
@@ -65,6 +66,54 @@ $(document).ready(function() {
 	});
 </script>
 
+
+
+<!--  fonction de mappage avec l'objet Person de la base de données -->
+
+<script>
+
+$(document).ready(function() {
+	   
+	  $('#savePerson').submit(function(event) {
+	       
+	      var lastName = $('#lastName').val();
+	      var firstName = $('#firstName').val();
+	      var login = $('#email').val();
+	      var password = $('#password').val();
+	      var question = $("#question").children('option:selected').index();
+	      var securityAnswer = $('#securityAnswer').val();
+
+	      var jsont = { "lastName" : lastName, "firstName" : firstName, "password" : password, "login" : login,  "question" : question, "securityAnswer": securityAnswer};
+	       
+	    $.ajax({
+	        url: $("#savePerson").attr( "action"),
+	        data: JSON.stringify(jsont),
+	        type: "POST",
+	         
+	        beforeSend: function(xhr) {
+	            xhr.setRequestHeader("Accept", "application/json");
+	            xhr.setRequestHeader("Content-Type", "application/json");
+	        },
+	        success: function(personLigth) {
+	                     
+	        }
+	    });
+	      
+	    event.preventDefault();
+	  });
+	  
+	
+	
+	$("#question").change(function(){
+	
+		$('#hidenAnswer').css('display', 'block');
+		
+	});
+
+});
+
+</script>
+
 </head>
 <body
 	style="background-image: url(images/pattern.png), url(images/2.jpg);">
@@ -89,39 +138,53 @@ $(document).ready(function() {
 								id="password" type="password" name="mot de passe"
 								placeholder="Password" required>
 						</fieldset>
-						<fieldset id="actions">
+						<fieldset id="fff">
 							<input type="submit" id="submit" value="Connecter"> <label><input
 								type="checkbox" checked="checked"> Keep me signed in</label>
 						</fieldset>
 					</form>
-				</div></li>				
-			<li id="signup">
-				<a href="#login-box" class="login-window dashboard-module">Ma première connexion</a>
+				</div></li>
+			<li id="signup"><a href="#login-box"
+				class="login-window dashboard-module">Ma première connexion</a>
 				<div id="login-box" class="login-popup">
-						<a href="#" class="close"><img src="images/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
-							<form method="post" class="signin" action="/SpringMVCExample/SuccessUserImage.jsp">
-							<fieldset class="textbox">
-								<label class="username">
-									<span>Nom</span>
-									<input id="firstname" name="firstname" placeholder="Your firstname" required>
-				 				</label>
-				 				<label class="username">
-									<span>Prenom</span>
-									<input id="lastname" name="lastname" placeholder="Your lastname" required>
-				 				</label>
-				 				<label class="username">
-									<span>Nom du Produit</span>
-									<input id="email" type="email" name="mail" 	placeholder="Your email address" required> 
-				 				</label>
-				 				<label class="username">
-									<span>Nom du Produit</span>
-									<input id="password" type="password" name="password" placeholder="password" required>
-				 				</label>
-				 				<button type="submit" class="submit buttonj" >Create</button>
-				 				</fieldset>
-							</form>	
-				</div>
-			</li>
+					<a href="#" class="close"><img src="images/close_pop.png"
+						class="btn_close" title="Close Window" alt="Close" /></a>
+					<form id="savePerson" method="post" class="signin"
+						action="/SpringMVCExample/savePersont.jsp">
+						<fieldset class="textbox">
+						 <label class="username"> <span>Prenom</span> <input
+								id="lastName" name="lastName" placeholder="Your lastName"
+								required>
+							</label>
+							<label class="username"> 
+								<span>Nom</span> 
+								<input 	id="firstName" name="firstName" placeholder="Your firstName"
+								required>
+							</label>
+							 <label class="username"> 
+							 	<span>Email</span>
+							  	<input id="email" type="email" name="mail" 	placeholder="Your email address" required>
+							</label> 
+							<label class="username"> 
+								<span>Mot de passe</span> 
+								<input id="password" type="password" name="password" placeholder="password" required>
+							</label> 
+							<label class="username"> 
+								<span>Question de sécurité</span> 
+								<select name="question" id="question">
+									<option value="Q0" selected="selected">---- Selectionnez une question ----</option>
+									<option value="Q1">Votre surnom?</option>
+									<option value="Q2">nom de votre meilleur ami ?</option>
+									<option value="Q3">nom de jeune fille de votre maman?</option>
+								</select>
+							</label>
+							<label class="username" id ="hidenAnswer"> <span>answer</span> <input
+								id="securityAnswer" placeholder="answer" name="securityAnswer" required>
+							</label>
+							<button type="submit" class="submit buttonj">Create</button>
+						</fieldset>
+					</form>
+				</div></li>
 		</ul>
 	</nav>
 
@@ -144,14 +207,19 @@ $(document).ready(function() {
 					<li><a href="http://www.apple.com/" title="Apple"><img
 							src="images/logo.png" alt="Apple Logo" /></a></li>
 					<li><a href="javascript:buildByCathegorie('cosmetique');"
-						title="cosmetique">Cosmetique</a></li>
+						title="cosmetique">Cosmetique</a>
+						<ul>
+							<li><a href="#">Hommes</a></li>
+							<li><a href="#">femmes</a></li>
+							<li><a href="#">Enfants</a></li>
+						</ul></li>
 					<li><a href="javascript:buildByCathegorie('Electromenager');"
 						title="Electromenager">Femmes</a></li>
 					<li><a href="javascript:buildByCathegorie('vetements');"
 						title="vetements">Vêtements</a></li>
 					<li><a href="http://www.apple.com/iphone/" title="iPhone">Enfant</a></li>
 					<li><a href="http://www.apple.com/ipad/" title="iPad">Bébé</a></li>
-					<li>
+					<li class="appleclass">
 						<form>
 							<input type="text" />
 						</form>

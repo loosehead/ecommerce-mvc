@@ -15,14 +15,17 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.support.DaoSupport;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.monyLady.myapp.ligth.PersonLight;
 import com.monyLady.myapp.ligth.ProductLigth;
 import com.monyLady.myapp.metiers.PersonManager;
+import com.monyLady.myapp.metiers.PersonManagerImpl;
 import com.monyLady.myapp.metiers.ProductManager;
 import com.monyLady.myapp.model.Person;
 import com.monyLady.myapp.model.Product;
@@ -31,43 +34,25 @@ import com.monyLady.myapp.model.Subcategory;
 @Controller
 public class MonyLadyController {
 
+	@Autowired
 	private PersonManager personManager;
+	@Autowired
 	private ProductManager productManager;
 	@Autowired
     ServletContext context;
 
 	private static Logger logger = Logger.getLogger(MonyLadyController.class);
 
-	@Autowired(required = true)
-	@Qualifier(value = "personManager")
-	public void setPersonManager(PersonManager pm) {
-		this.personManager = pm;
-	}
-	
-	
-	@Autowired(required = true)
-	@Qualifier(value = "productManager")
-	public void setProductManager(ProductManager productManager) {
-		this.productManager = productManager;
-	}
-
-
-
 	// For add and update person both
-	@RequestMapping(value = "/person/add", method = RequestMethod.POST)
-	public String addPerson(@ModelAttribute("person") Person p) {
+	@RequestMapping(value = "savePersont", method = RequestMethod.POST)
+	public String saveClient(@ModelAttribute("SpringWeb")PersonLight p) {
+			this.personManager.savePerson(this.personManager.toPerson(p));
 
-		if (p.getPersonId() == 0) {
-			// new person add it
-			this.personManager.addPerson(p);
-		} else {
-			// existing person, call update
-			this.personManager.updatePerson(p);
-		}
-
-		return "redirect:/views/persons";
+		return "customer";
 	}
 
+	
+	
 	@RequestMapping(value = "/customer", method = RequestMethod.GET)
 	public String listPerson(Model model) {
 

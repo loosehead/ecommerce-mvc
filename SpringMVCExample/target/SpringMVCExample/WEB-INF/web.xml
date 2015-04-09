@@ -31,6 +31,7 @@
 		<url-pattern>/customer.jsp</url-pattern>
 		<url-pattern>/admin.jsp</url-pattern>
 		<url-pattern>/SuccessUserImage.jsp</url-pattern>
+		<url-pattern>/savePersont.jsp</url-pattern>
 		<url-pattern>/demo.json</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>

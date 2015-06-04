@@ -72,7 +72,7 @@ public class MonyLadyController {
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String redirect(Model model) {
 		
-		List<Product> products= this.productManager.getAllProducts();
+		/*List<Product> products= this.productManager.getAllProducts();
 		List<ProductLigth> productsLights = new ArrayList<ProductLigth>();
 		for (Product p : products){
 			productsLights.add(productManager.toProductLight(p));
@@ -100,7 +100,7 @@ public class MonyLadyController {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		return "admin";
 	}
 	// M�thode pour l'ajout d'un produit

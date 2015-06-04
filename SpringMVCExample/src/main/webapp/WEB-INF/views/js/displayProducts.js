@@ -3,18 +3,22 @@ function _getAllFilesFromFolder (cat) {
     var results = null;
     var data1 = {categorie:""+cat}
     
+    
+    
     $.ajax({
-        url: "listAllFilebyCategoryAction.ecom",
-        data: data1,
-        dataType: 'json',
-        contentType: 'application/json',
-        type: 'GET',
-        async: true,
+        url: $("#").attr( "action"),
+        data: JSON.stringify(json),
+        type: "POST",
+         
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+        },
         success: function (res) {
         	
-        	setProduct(res);
-        	/*alert(res.lists);
-        	 * console.log(res.data.length);
+        	//setProduct(res);
+        	alert(res.lists);
+        	 /* console.log(res.data.length);
             results = res.lists;*/
             
         },
@@ -22,6 +26,9 @@ function _getAllFilesFromFolder (cat) {
             alert(request+"--"+status+"--"+errorThrown);
         }
     });
+    
+    
+    
 /*
     filesystem.readdirSync(categorie).forEach(function(file) {
 
@@ -52,11 +59,11 @@ var _htmlresult = "" ;
 for (var i = 0, f; f = res.lists[i]; i++) {
 	_htmlresult=_htmlresult+'\n'
 	+'<li><a class="item" href="#"  draggable="true">'
-	+'<img src="images/'+res.categorie+'/'+f+'"  />'
+	+'<img src="images/'+f.categorie+'/'+f.imagePath+'"  />'
 	+'<div>'
-	+'<p><strong>'+f+'</strong></p>'
-	+'<p><strong>Price</strong>: <span>$1199.00</span></p>'
-	+'<p><strong>Quantity</strong>: <span>10</span></p>'
+	+'<p><strong>'+f.producName+'</strong></p>'
+	+'<p><strong>'+f.price+'</strong>: <span>$1199.00</span></p>'
+	+'<p><strong>'+f.quantity+'</strong>: <span>10</span></p>'
 	+'</div>'
     +'</a></li>';
 	

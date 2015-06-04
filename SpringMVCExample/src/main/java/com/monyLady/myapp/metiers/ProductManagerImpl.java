@@ -3,6 +3,7 @@ package com.monyLady.myapp.metiers;
 import java.io.File;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +16,7 @@ public class ProductManagerImpl implements ProductManager {
 	
 	// product dao is inject by Spring
 	
-	
+	@Autowired
 	private ProductDAO productDAO;
 	
 	public ProductDAO getProductDAO() {

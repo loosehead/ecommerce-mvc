@@ -74,19 +74,19 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	   
-	  $('#savePerson').submit(function(event) {
+	  $('#saveClient').submit(function(event) {
 	       
 	      var lastName = $('#lastName').val();
 	      var firstName = $('#firstName').val();
 	      var login = $('#email').val();
 	      var password = $('#password').val();
-	      var question = $("#question").children('option:selected').index();
+	      var question = 1;// $("#question").children('option:selected').index();
 	      var securityAnswer = $('#securityAnswer').val();
 
 	      var jsont = { "lastName" : lastName, "firstName" : firstName, "password" : password, "login" : login,  "question" : question, "securityAnswer": securityAnswer};
 	       
 	    $.ajax({
-	        url: $("#savePerson").attr( "action"),
+	        url: "/SpringMVCExample/savePersont.jsp", //$("#").attr("action"),
 	        data: JSON.stringify(jsont),
 	        type: "POST",
 	         
@@ -149,8 +149,7 @@ $(document).ready(function() {
 				<div id="login-box" class="login-popup">
 					<a href="#" class="close"><img src="images/close_pop.png"
 						class="btn_close" title="Close Window" alt="Close" /></a>
-					<form id="savePerson" method="post" class="signin"
-						action="/SpringMVCExample/savePersont.jsp">
+					<form id="saveClient" method="post" class="signin" action="/SpringMVCExample/savePersont.jsp">
 						<fieldset class="textbox">
 						 <label class="username"> <span>Prenom</span> <input
 								id="lastName" name="lastName" placeholder="Your lastName"

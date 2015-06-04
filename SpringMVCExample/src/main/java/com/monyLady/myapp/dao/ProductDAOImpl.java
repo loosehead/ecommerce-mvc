@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.monyLady.myapp.model.Category;
@@ -18,6 +19,7 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	
 	//Session factory injected by spring context
+	@Autowired
     private SessionFactory sessionFactory;
      
     //This method will be called when a product object is added

@@ -1,6 +1,7 @@
 package com.monyLady.myapp.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -51,6 +52,16 @@ public class ProductDAOImpl implements ProductDAO {
 		Query q = this.sessionFactory.getCurrentSession().createQuery("from Category where CategoryName = '"+categoryName+"'");
 		Category cat = (Category) q.list().get(0);
 		 return (Subcategory) this.sessionFactory.getCurrentSession().createQuery("from Subcategory where subcategoryName = '"+subcategoryName+"' and categoryId ="+cat.getCategoryId()).list().get(0);
+	}
+
+    @SuppressWarnings("unchecked")
+    @Override
+    @Transactional
+	public Set<Product> getProductBySubcategorie(String categoryName,
+			String subcategoryName) {
+    	Query q = this.sessionFactory.getCurrentSession().createQuery("from Subcategory where subcategoryName = '"+subcategoryName+"'");
+    	Subcategory scat = (Subcategory) q.list().get(0);
+		return scat.getProducts();
 	}
 
 }

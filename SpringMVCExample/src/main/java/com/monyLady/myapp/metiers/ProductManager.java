@@ -1,6 +1,7 @@
 package com.monyLady.myapp.metiers;
 
 import java.util.List;
+import java.util.Set;
 
 import com.monyLady.myapp.ligth.ProductLigth;
 import com.monyLady.myapp.model.Product;
@@ -13,5 +14,7 @@ public interface ProductManager {
 	public List<Product> getAllProducts();
 	public Product toProduct(ProductLigth product);
 	public ProductLigth toProductLight(Product p);
+	public Set<Product> getProductBySubcategorie(String categoryName,
+			String subcategoryName);
 
 }

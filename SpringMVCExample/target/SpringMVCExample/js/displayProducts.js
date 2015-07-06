@@ -1,39 +1,35 @@
-function _getAllFilesFromFolder (cat) {
+function _getAllFilesFromFolder (cat, subcat) {
     //var filesystem = require("fs");
     var results = null;
-    var data1 = {categorie:""+cat}
+    var data1 = {"categoryName": cat, "subcategoryName":subcat};
+    
     
     $.ajax({
-        url: "listAllFilebyCategoryAction.ecom",
-        data: data1,
-        dataType: 'json',
-        contentType: 'application/json',
-        type: 'GET',
-        async: true,
-        success: function (res) {
-        	
-        	setProduct(res);
-        	/*alert(res.lists);
-        	 * console.log(res.data.length);
+        url: "http://localhost:8097/SpringMVCExample/allProductBySubcategoryName",
+        data: JSON.stringify(data1),
+        type: "GET",
+         
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.setRequestHeader("Content-Type", "application/json");
+        },
+        success: function(product) {
+            var respContent = "";
+             
+          //setProduct(res);
+        	alert(res.lists);
+        	 /* console.log(res.data.length);
             results = res.lists;*/
-            
+             
+            $("#sPhoneFromResponse").html(respContent);         
         },
         error: function (request, status, errorThrown) {
             alert(request+"--"+status+"--"+errorThrown);
         }
+        
     });
-/*
-    filesystem.readdirSync(categorie).forEach(function(file) {
-
-        file = categorie+'/'+file;
-        var stat = filesystem.statSync(file);
-
-        if (stat && stat.isDirectory()) {
-            results = results.concat(_getAllFilesFromFolder(file));
-        } else results.push(file);
-
-    });
-*/
+      
+    
     return results;
 
 };
@@ -42,9 +38,9 @@ function _getAllFilesFromFolder (cat) {
 
 
 
-function buildByCathegorie(cathegorie){
+function buildByCathegorie(cat, subcat){
 		
-	var files = _getAllFilesFromFolder(cathegorie);
+	var files = _getAllFilesFromFolder(cat, subcat);
 }
 function setProduct(res){
 
@@ -52,11 +48,11 @@ var _htmlresult = "" ;
 for (var i = 0, f; f = res.lists[i]; i++) {
 	_htmlresult=_htmlresult+'\n'
 	+'<li><a class="item" href="#"  draggable="true">'
-	+'<img src="images/'+res.categorie+'/'+f+'"  />'
+	+'<img src="images/'+f.categorie+'/'+f.imagePath+'"  />'
 	+'<div>'
-	+'<p><strong>'+f+'</strong></p>'
-	+'<p><strong>Price</strong>: <span>$1199.00</span></p>'
-	+'<p><strong>Quantity</strong>: <span>10</span></p>'
+	+'<p><strong>'+f.producName+'</strong></p>'
+	+'<p><strong>'+f.price+'</strong>: <span>$1199.00</span></p>'
+	+'<p><strong>'+f.quantity+'</strong>: <span>10</span></p>'
 	+'</div>'
     +'</a></li>';
 	

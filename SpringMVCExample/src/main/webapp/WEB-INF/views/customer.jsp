@@ -73,7 +73,7 @@ $(document).ready(function() {
 <script>
 
 $(document).ready(function() {
-	   
+	  refreshDragAndDrop();
 	  $('#saveClient').submit(function(event) {
 	       
 	      var lastName = $('#lastName').val();
@@ -205,12 +205,12 @@ $(document).ready(function() {
 				<ul id="appleNav">
 					<li><a href="http://www.apple.com/" title="Apple"><img
 							src="images/logo.png" alt="Apple Logo" /></a></li>
-					<li><a href="javascript:buildByCathegorie('cosmetique');"
+					<li><a href="javascript:buildByCathegorie('cosmetique', '');"
 						title="cosmetique">Cosmetique</a>
 						<ul>
-							<li><a href="#">Hommes</a></li>
-							<li><a href="#">femmes</a></li>
-							<li><a href="#">Enfants</a></li>
+							<li><a href="javascript:buildByCathegorie('cosmetique', 'homme');">Hommes</a></li>
+							<li><a href="javascript:buildByCathegorie('cosmetique', 'femmes');">femmes</a></li>
+							<li><a href="javascript:buildByCathegorie('cosmetique', 'enfants');">Enfants</a></li>
 						</ul></li>
 					<li><a href="javascript:buildByCathegorie('Electromenager');"
 						title="Electromenager">Femmes</a></li>

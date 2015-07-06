@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.monyLady.myapp.ligth.CategoryLigth;
 import com.monyLady.myapp.ligth.PersonLight;
 import com.monyLady.myapp.ligth.ProductLigth;
 import com.monyLady.myapp.metiers.PersonManager;
@@ -110,7 +112,7 @@ public class MonyLadyController {
 		
 		this.productManager.addProduct(this.productManager.toProduct(product));
 		
-		logger.info("Ajout d'un produit");
+		//productManager.getProductBySubcategorie(categoryName, subcategoryName);
 		
 		return "customer"; 
 	}
@@ -126,15 +128,17 @@ public class MonyLadyController {
 	}
 
 	// M�thode pour lister tous les produit d'un sous cat�gorie
-	@RequestMapping(value = "/allProduct", method = RequestMethod.GET)
-	public List<Product> allProduct(Subcategory subcategory) {
+	@RequestMapping(value = "/allProductBySubcategoryName", method = RequestMethod.GET, produces = "application/json")
+	public Set<Product> allProduct(@ModelAttribute("SpringWeb")CategoryLigth cate) {
 
 		logger.info("liste de tous les produits du sous categorie :"
-				+ subcategory);
+				+ cate.getSubcategoryName());
 		;
-		List<Product> allProduct = new ArrayList<Product>();
-
-		return allProduct;
+		
+		if("".equals(cate.getCategoryName()) || "".equals(cate.getSubcategoryName()) ){
+			return null;
+		}
+		return productManager.getProductBySubcategorie(cate.getSubcategoryName(), cate.getCategoryName());
 	}
 
 }

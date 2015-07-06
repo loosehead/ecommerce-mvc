@@ -1,46 +1,36 @@
-function _getAllFilesFromFolder (cat) {
+function _getAllFilesFromFolder (cat, subcat) {
     //var filesystem = require("fs");
     var results = null;
-    var data1 = {categorie:""+cat}
-    
+    var data1 = {"categoryName": cat, "subcategoryName":subcat};
+    var json = {"cate":data1}
     
     
     $.ajax({
-        url: $("#").attr( "action"),
-        data: JSON.stringify(json),
-        type: "POST",
+        url: "http://localhost:8097/SpringMVCExample/allProductBySubcategoryName",
+        data: json,
+        type: "GET",
          
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Accept", "application/json");
             xhr.setRequestHeader("Content-Type", "application/json");
         },
-        success: function (res) {
-        	
-        	//setProduct(res);
+        success: function(product) {
+            var respContent = "";
+             
+          //setProduct(res);
         	alert(res.lists);
         	 /* console.log(res.data.length);
             results = res.lists;*/
-            
+             
+            $("#sPhoneFromResponse").html(respContent);         
         },
         error: function (request, status, errorThrown) {
             alert(request+"--"+status+"--"+errorThrown);
         }
+        
     });
+      
     
-    
-    
-/*
-    filesystem.readdirSync(categorie).forEach(function(file) {
-
-        file = categorie+'/'+file;
-        var stat = filesystem.statSync(file);
-
-        if (stat && stat.isDirectory()) {
-            results = results.concat(_getAllFilesFromFolder(file));
-        } else results.push(file);
-
-    });
-*/
     return results;
 
 };
@@ -49,9 +39,9 @@ function _getAllFilesFromFolder (cat) {
 
 
 
-function buildByCathegorie(cathegorie){
+function buildByCathegorie(cat, subcat){
 		
-	var files = _getAllFilesFromFolder(cathegorie);
+	var files = _getAllFilesFromFolder(cat, subcat);
 }
 function setProduct(res){
 

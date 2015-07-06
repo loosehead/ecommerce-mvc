@@ -2,6 +2,7 @@ package com.monyLady.myapp.metiers;
 
 import java.io.File;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,6 +72,13 @@ public class ProductManagerImpl implements ProductManager {
 		p.setSubcategoryName(product.getSubcategory().getSubcategoryName());
 		p.setCategoryName(product.getSubcategory().getCategory().getCategoryName());
 		return p;
+	}
+
+	@Override
+	public Set<Product> getProductBySubcategorie(String categoryName,
+			String subcategoryName) {
+		// TODO Auto-generated method stub
+		return this.productDAO.getProductBySubcategorie(categoryName, subcategoryName);
 	}
 
 

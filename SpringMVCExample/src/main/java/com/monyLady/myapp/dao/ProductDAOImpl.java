@@ -64,4 +64,15 @@ public class ProductDAOImpl implements ProductDAO {
 		return scat.getProducts();
 	}
 
+    @SuppressWarnings("unchecked")
+    @Override
+    @Transactional
+	public Product getProductById(Long id) {
+		// TODO Auto-generated method stub
+		Query q = this.sessionFactory.getCurrentSession().createQuery("from Product where productID ='" +id+"'");
+		
+		Product product = (Product)q.list().get(0);
+		return  product;
+	}
+
 }

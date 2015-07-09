@@ -16,5 +16,7 @@ public interface ProductDAO {
 			String subcategoryName);
 	public Set<Product> getProductBySubcategorie(String categoryName,
 			String subcategoryName);
+	
+	public Product getProductById(Long id);
 
 }

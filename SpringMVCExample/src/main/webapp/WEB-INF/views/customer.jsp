@@ -13,10 +13,10 @@
 <link rel="stylesheet" type="text/css" href="css/stylesadmin.css"
 	tppabs="http://www.xooom.pl/work/magicadmin/css/styles.css"
 	media="screen" />
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script src="js/jquery.ndd.js"></script>
+	
 
+	
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="js/dragdrop.js"></script>
 <script src="js/displayProducts.js"></script>
 <script type="text/javascript">
@@ -86,7 +86,7 @@ $(document).ready(function() {
 	      var jsont = { "lastName" : lastName, "firstName" : firstName, "password" : password, "login" : login,  "question" : question, "securityAnswer": securityAnswer};
 	       
 	    $.ajax({
-	        url: "/SpringMVCExample/savePersont.jsp", //$("#").attr("action"),
+	        url: "/monylady/savePersont.jsp", //$("#").attr("action"),
 	        data: JSON.stringify(jsont),
 	        type: "POST",
 	         
@@ -149,7 +149,7 @@ $(document).ready(function() {
 				<div id="login-box" class="login-popup">
 					<a href="#" class="close"><img src="images/close_pop.png"
 						class="btn_close" title="Close Window" alt="Close" /></a>
-					<form id="saveClient" method="post" class="signin" action="/SpringMVCExample/savePersont.jsp">
+					<form id="saveClient" method="post" class="signin" action="/monylady/savePersont.jsp">
 						<fieldset class="textbox">
 						 <label class="username"> <span>Prenom</span> <input
 								id="lastName" name="lastName" placeholder="Your lastName"
@@ -208,9 +208,9 @@ $(document).ready(function() {
 					<li><a href="javascript:buildByCathegorie('cosmetique', '');"
 						title="cosmetique">Cosmetique</a>
 						<ul>
-							<li><a href="javascript:buildByCathegorie('cosmetique', 'homme');">Hommes</a></li>
-							<li><a href="javascript:buildByCathegorie('cosmetique', 'femmes');">femmes</a></li>
-							<li><a href="javascript:buildByCathegorie('cosmetique', 'enfants');">Enfants</a></li>
+							<li><a href="javascript:buildByCathegorie('cosmetique', 'Homme');">Hommes</a></li>
+							<li><a href= "#" onclick ="buildByCathegorie('cosmetique', 'Femmes');">femmes</a></li>
+							<li><a href="javascript:buildByCathegorie('cosmetique', 'Enfants');">Enfants</a></li>
 						</ul></li>
 					<li><a href="javascript:buildByCathegorie('Electromenager');"
 						title="Electromenager">Femmes</a></li>

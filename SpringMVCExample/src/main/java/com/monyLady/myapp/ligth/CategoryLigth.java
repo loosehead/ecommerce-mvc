@@ -1,5 +1,9 @@
 package com.monyLady.myapp.ligth;
 
+import org.springframework.stereotype.Component;
+
+
+@Component
 public class CategoryLigth {
 	private String categoryName;
 	private String subcategoryName;

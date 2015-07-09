@@ -6,9 +6,10 @@ function _getAllFilesFromFolder (cat, subcat) {
     
     
     $.ajax({
-        url: "http://localhost:8097/SpringMVCExample/allProductBySubcategoryName",
-        data: json,
+        url: "/monylady/allProductBySubcategoryName",
+        data: data1,
         type: "GET",
+        async : false,
          
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Accept", "application/json");
@@ -17,7 +18,7 @@ function _getAllFilesFromFolder (cat, subcat) {
         success: function(product) {
             var respContent = "";
              
-          //setProduct(res);
+          setProduct(res);
         	alert(res.lists);
         	 /* console.log(res.data.length);
             results = res.lists;*/

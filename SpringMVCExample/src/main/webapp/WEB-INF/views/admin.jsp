@@ -472,7 +472,7 @@ $(document).ready(function() {
 	<div id="login-box" class="login-popup">
 		<a href="#" class="close"><img src="images/close_pop.png"
 			class="btn_close" title="Close Window" alt="Close" /></a>
-		<form method="post" class="signin" action="/SpringMVCExample/SuccessUserImage.jsp">
+		<form method="post" class="signin" action="/monylady/SuccessUserImage.jsp">
 			<fieldset class="textbox">
 				<label class="username"> 
 					<span>Categorie</span>

@@ -22,6 +22,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.monyLady.myapp.ligth.CategoryLigth;
 import com.monyLady.myapp.ligth.PersonLight;
@@ -116,29 +117,24 @@ public class MonyLadyController {
 		
 		return "customer"; 
 	}
-
-	// M�thode pour lister tous les produits dans la table WishList
-	@RequestMapping(value = "/allProductWishList", method = RequestMethod.GET)
-	public List<Product> allProductWishList() {
-
-		List<Product> allProductWishList = new ArrayList<Product>();
-		logger.info("Liste de tous les produits dans la table WishList");
-
-		return allProductWishList;
-	}
-
+	
+	
+	
 	// M�thode pour lister tous les produit d'un sous cat�gorie
-	@RequestMapping(value = "/allProductBySubcategoryName", method = RequestMethod.GET, produces = "application/json")
-	public Set<Product> allProduct(@ModelAttribute("SpringWeb")CategoryLigth cate) {
+	@RequestMapping(value = "/allProductBySubcategoryName", method = RequestMethod.GET)
+	public @ResponseBody Set<Product> getallProductBySubcategoryName(@ModelAttribute("categoryName")String  categoryName, @ModelAttribute("subcategoryName")String  subcategoryName) {
 
 		logger.info("liste de tous les produits du sous categorie :"
-				+ cate.getSubcategoryName());
+				+ subcategoryName);
 		;
 		
-		if("".equals(cate.getCategoryName()) || "".equals(cate.getSubcategoryName()) ){
+		if("".equals(categoryName) || "".equals(subcategoryName) ){
 			return null;
 		}
-		return productManager.getProductBySubcategorie(cate.getSubcategoryName(), cate.getCategoryName());
+		return productManager.getProductBySubcategorie(categoryName,subcategoryName);
 	}
+
+	
+
 
 }

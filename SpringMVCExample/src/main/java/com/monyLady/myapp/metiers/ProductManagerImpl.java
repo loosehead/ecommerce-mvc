@@ -81,6 +81,14 @@ public class ProductManagerImpl implements ProductManager {
 		return this.productDAO.getProductBySubcategorie(categoryName, subcategoryName);
 	}
 
+	@Override
+	public void saveImage(File image) {
+		// TODO Auto-generated method stub
+		
+		this.productDAO.saveImage(image);
+		
+	}
+
 
 
 }

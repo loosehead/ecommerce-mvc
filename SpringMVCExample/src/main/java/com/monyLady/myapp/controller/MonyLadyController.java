@@ -110,7 +110,7 @@ public class MonyLadyController {
 	@RequestMapping(value = "SuccessUserImage", method = RequestMethod.POST)
 	public String addProduct(@ModelAttribute("SpringWeb")ProductLigth product) {
 		
-		
+		this.productManager.saveImage(product.getImage());
 		this.productManager.addProduct(this.productManager.toProduct(product));
 		
 		//productManager.getProductBySubcategorie(categoryName, subcategoryName);

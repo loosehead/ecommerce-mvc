@@ -1,5 +1,6 @@
 package com.monyLady.myapp.metiers;
 
+import java.io.File;
 import java.util.List;
 import java.util.Set;
 
@@ -16,5 +17,6 @@ public interface ProductManager {
 	public ProductLigth toProductLight(Product p);
 	public Set<Product> getProductBySubcategorie(String categoryName,
 			String subcategoryName);
+	public void saveImage(File image);
 
 }

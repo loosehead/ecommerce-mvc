@@ -1,5 +1,6 @@
 package com.monyLady.myapp.dao;
 
+import java.io.File;
 import java.util.List;
 import java.util.Set;
 
@@ -18,5 +19,7 @@ public interface ProductDAO {
 			String subcategoryName);
 	
 	public Product getProductById(Long id);
+
+	public void saveImage(File image);
 
 }

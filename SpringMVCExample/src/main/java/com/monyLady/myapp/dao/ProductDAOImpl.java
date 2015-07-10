@@ -1,15 +1,14 @@
 package com.monyLady.myapp.dao;
 
+import java.io.File;
 import java.util.List;
 import java.util.Set;
-
+import javax.servlet.ServletContext;
 import javax.transaction.Transactional;
-
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.monyLady.myapp.model.Category;
 import com.monyLady.myapp.model.Product;
 import com.monyLady.myapp.model.Subcategory;
@@ -22,8 +21,13 @@ public class ProductDAOImpl implements ProductDAO {
 	//Session factory injected by spring context
 	@Autowired
     private SessionFactory sessionFactory;
+	
+	@Autowired
+	ServletContext context;
      
     //This method will be called when a product object is added
+	
+	public static String DOSSIER_IMAGE ="";
     
     @Override
     public void addProduct(Product product) {
@@ -74,6 +78,14 @@ public class ProductDAOImpl implements ProductDAO {
 		
 		Product product = (Product)q.list().get(0);
 		return  product;
+	}
+
+	@Override
+	public void saveImage(File image) {
+		// TODO Auto-generated method stub
+		String path = context.getRealPath("images");
+		System.out.println(path);
+		
 	}
 
 }

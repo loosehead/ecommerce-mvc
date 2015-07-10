@@ -20,6 +20,8 @@
     <servlet-name>appServlet</servlet-name>
      <url-pattern>/</url-pattern>
      <url-pattern>/customer.jsp</url-pattern>
+     <url-pattern>/admin.jsp</url-pattern>
+     <url-pattern>/savePersont.jsp</url-pattern>
     <!--  
     <url-pattern>/customer.jsp</url-pattern>
     <url-pattern>/admin.jsp</url-pattern>

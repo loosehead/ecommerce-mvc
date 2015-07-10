@@ -59,9 +59,10 @@ public class ProductDAOImpl implements ProductDAO {
     @Transactional
 	public Set<Product> getProductBySubcategorie(String categoryName,
 			String subcategoryName) {
-    	Query q = this.sessionFactory.getCurrentSession().createQuery("from Subcategory where subcategoryName = '"+subcategoryName+"'");
-    	Subcategory scat = (Subcategory) q.list().get(0);
-		return scat.getProducts();
+    	Query q = this.sessionFactory.getCurrentSession().createQuery("from Category where CategoryName = '"+categoryName+"'");
+		Category cat = (Category) q.list().get(0);
+		Subcategory scat = (Subcategory) this.sessionFactory.getCurrentSession().createQuery("from Subcategory where subcategoryName = '"+subcategoryName+"' and categoryId ="+cat.getCategoryId()).list().get(0);
+		 return scat.getProducts();
 	}
 
     @SuppressWarnings("unchecked")

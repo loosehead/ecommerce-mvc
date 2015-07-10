@@ -122,7 +122,7 @@ public class MonyLadyController {
 	
 	// M�thode pour lister tous les produit d'un sous cat�gorie
 	@RequestMapping(value = "/allProductBySubcategoryName", method = RequestMethod.GET)
-	public @ResponseBody Set<Product> getallProductBySubcategoryName(@ModelAttribute("categoryName")String  categoryName, @ModelAttribute("subcategoryName")String  subcategoryName) {
+	public @ResponseBody List<ProductLigth> getallProductBySubcategoryName(@ModelAttribute("categoryName")String  categoryName, @ModelAttribute("subcategoryName")String  subcategoryName) {
 
 		logger.info("liste de tous les produits du sous categorie :"
 				+ subcategoryName);
@@ -131,7 +131,12 @@ public class MonyLadyController {
 		if("".equals(categoryName) || "".equals(subcategoryName) ){
 			return null;
 		}
-		return productManager.getProductBySubcategorie(categoryName,subcategoryName);
+		ArrayList<ProductLigth> listP =new ArrayList<ProductLigth>(); 
+		Set<Product> setP= productManager.getProductBySubcategorie(categoryName,subcategoryName);
+		for (Product product :setP ){
+			listP.add(this.productManager.toProductLight(product));
+		}
+		return listP;
 	}
 
 	

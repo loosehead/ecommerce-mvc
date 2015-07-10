@@ -15,15 +15,15 @@ function _getAllFilesFromFolder (cat, subcat) {
             xhr.setRequestHeader("Accept", "application/json");
             xhr.setRequestHeader("Content-Type", "application/json");
         },
-        success: function(product) {
+        success: function(products) {
             var respContent = "";
              
-          setProduct(res);
-        	alert(res.lists);
+          setProduct(products);
+        	//alert(res.lists);
         	 /* console.log(res.data.length);
             results = res.lists;*/
              
-            $("#sPhoneFromResponse").html(respContent);         
+            //$("#sPhoneFromResponse").html(respContent);         
         },
         error: function (request, status, errorThrown) {
             alert(request+"--"+status+"--"+errorThrown);
@@ -47,7 +47,7 @@ function buildByCathegorie(cat, subcat){
 function setProduct(res){
 
 var _htmlresult = "" ;
-for (var i = 0, f; f = res.lists[i]; i++) {
+for (var i = 0, f; f = res[i]; i++) {
 	_htmlresult=_htmlresult+'\n'
 	+'<li><a class="item" href="#"  draggable="true">'
 	+'<img src="images/'+f.categorie+'/'+f.imagePath+'"  />'

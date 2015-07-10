@@ -74,7 +74,7 @@ public class Subcategory implements java.io.Serializable {
 		this.subcategoryName = subcategoryName;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subcategory")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "subcategory")
 	public Set<Product> getProducts() {
 		return this.products;
 	}

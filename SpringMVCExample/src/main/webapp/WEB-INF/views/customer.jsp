@@ -7,7 +7,7 @@
 
 <head>
 
-<title>Ecommerce</title>
+<title>Monylady</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/styleAppleMenu.css" />
 <link rel="stylesheet" type="text/css" href="css/stylesadmin.css"
@@ -16,7 +16,8 @@
 	
 
 	
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="js/jquery.ndd.js"></script>
 <script src="js/dragdrop.js"></script>
 <script src="js/displayProducts.js"></script>
 <script type="text/javascript">
@@ -80,13 +81,13 @@ $(document).ready(function() {
 	      var firstName = $('#firstName').val();
 	      var login = $('#email').val();
 	      var password = $('#password').val();
-	      var question = 1;// $("#question").children('option:selected').index();
+	      var question = $("#question").children('option:selected').index(); 
 	      var securityAnswer = $('#securityAnswer').val();
 
 	      var jsont = { "lastName" : lastName, "firstName" : firstName, "password" : password, "login" : login,  "question" : question, "securityAnswer": securityAnswer};
 	       
 	    $.ajax({
-	        url: "/monylady/savePersont.jsp", //$("#").attr("action"),
+	        url: "/monylady/savePersont", //$("#").attr("action"),
 	        data: JSON.stringify(jsont),
 	        type: "POST",
 	         
@@ -208,9 +209,9 @@ $(document).ready(function() {
 					<li><a href="javascript:buildByCathegorie('cosmetique', '');"
 						title="cosmetique">Cosmetique</a>
 						<ul>
-							<li><a href="javascript:buildByCathegorie('cosmetique', 'Homme');">Hommes</a></li>
-							<li><a href= "#" onclick ="buildByCathegorie('cosmetique', 'Femmes');">femmes</a></li>
-							<li><a href="javascript:buildByCathegorie('cosmetique', 'Enfants');">Enfants</a></li>
+							<li><a href="javascript:buildByCathegorie('Cosmetiques', 'Homme');">Hommes</a></li>
+							<li><a href= "#" onclick ="buildByCathegorie('Cosmetiques', 'Femmes');">femmes</a></li>
+							<li><a href="javascript:buildByCathegorie('Cosmetiques', 'Enfants');">Enfants</a></li>
 						</ul></li>
 					<li><a href="javascript:buildByCathegorie('Electromenager');"
 						title="Electromenager">Femmes</a></li>

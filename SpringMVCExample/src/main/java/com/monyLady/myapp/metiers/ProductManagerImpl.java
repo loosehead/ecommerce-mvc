@@ -84,7 +84,6 @@ public class ProductManagerImpl implements ProductManager {
 	@Override
 	public void saveImage(File image) {
 		// TODO Auto-generated method stub
-		
 		this.productDAO.saveImage(image);
 		
 	}

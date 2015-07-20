@@ -56,7 +56,7 @@ public class MonyLadyController {
 
 	
 	
-	@RequestMapping(value = "/customer", method = RequestMethod.GET)
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String listPerson(Model model) {
 
 		Person p = new Person();
@@ -69,7 +69,7 @@ public class MonyLadyController {
 		listPerson.add(p);
 		model.addAttribute("listPerson", listPerson);
 
-		return "customer";
+		return "index";
 	}
 	
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)

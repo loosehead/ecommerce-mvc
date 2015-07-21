@@ -3,8 +3,8 @@
 
 body {
 	font: 12px/1.5 "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	color: #444444;
-	background-color: #f6f6f6;
+	color: #333;
+	background-color: #fff;
 	}
 
 a:focus {
@@ -20,10 +20,7 @@ hr {
 	}
 
 
-h1 {
-	font-size: 30px;
-	letter-spacing: -1.5px;
-	}
+
 
 h2 {
 	font-size: 24px;
@@ -277,12 +274,7 @@ ul#nav li#current a {
 
 /* -------------------- Box module -------------------- */
 
-div.module { 
-	background: url(../images/module-body-left-bg.gif) no-repeat scroll bottom left; 
-	float: left; 
-	width: 100%; 
-	margin-bottom: 20px; 
-	}
+
 
 div.module div.module-body { 
 	background: url(../images/module-body-right-bg.gif) no-repeat scroll bottom right; 
@@ -290,19 +282,6 @@ div.module div.module-body {
 	}
 
 /* Percentage padding in the module dependant on the cell width */
-.grid_1 div.module div.module-body  { padding: 20px 8% 20px 8%; float: left; width: 84%; }
-.grid_2 div.module div.module-body  { padding: 20px 7% 20px 7%; float: left; width: 86%; }
-.grid_3 div.module div.module-body  { padding: 20px 6% 20px 6%; float: left; width: 88%; }
-.grid_4 div.module div.module-body  { padding: 20px 5% 20px 5%; float: left; width: 90%; }
-.grid_5 div.module div.module-body  { padding: 20px 4% 20px 4%; float: left; width: 92%; }
-.grid_6 div.module div.module-body  { padding: 20px 3% 20px 3%; float: left; width: 94%; }
-.grid_7 div.module div.module-body  { padding: 20px 2.75% 20px  2.75%; float: left; width: 94.5%; }
-.grid_8 div.module div.module-body  { padding: 20px 2.5% 20px 2.5%; float: left; width: 95%; }
-.grid_9 div.module div.module-body  { padding: 20px 2.25% 20px 2.25%; float: left; width: 95.5%; }
-.grid_10 div.module div.module-body { padding: 20px 2% 20px 2%; float: left; width: 96%; }
-.grid_11 div.module div.module-body { padding: 20px 1.75% 20px 1.75%; float: left; width: 96.5%; }
-.grid_12 div.module div.module-body { padding: 20px 1.5% 20px 1.5%; float: left; width: 97%; }
-
 
 	
 div.module div.module-table-body { 
@@ -748,80 +727,6 @@ form.login {
 
 /* -------------------- Dashboard -------------------- */
 
-a.dashboard-module, 
-a.dashboard-module:visited { 
-	width: 142px; 
-	height: 142px; 
-	display: block; 
-	float: left; 
-	margin: 0 8px 8px 0;  
-	text-align: center; 
-	color: #444444; 
-	}
-	
-a.dashboard-module:hover, 
-a.dashboard-module:active { 
-	background-position: bottom left; 
-	text-decoration: none; 
-	color:#0063be; 
-	}
-
-a.dashboard-module img { 
-	margin-top: 20px; 
-	}
-	
-a.dashboard-module span { 
-	margin-top: 10px; 
-	display: block; 
-	}
-
-
-
-a { 
-	text-decoration:none; 
-	color:#00c6ff;
-}
-
-h1 {
-	font: 4em normal Arial, Helvetica, sans-serif;
-	padding: 20px;	margin: 0;
-	text-align:center;
-}
-
-h1 small{
-	font: 0.2em normal  Arial, Helvetica, sans-serif;
-	text-transform:uppercase; letter-spacing: 0.2em; line-height: 5em;
-	display: block;
-}
-
-h2 {
-    color:#bbb;
-    font-size:3em;
-	text-align:center;
-	text-shadow:0 1px 3px #161616;
-}
-
-.container {width: 960px; margin: 0 auto; overflow: hidden;}
-
-#content {	float: left; width: 100%;}
-
-.post { margin: 0 auto; padding-bottom: 50px; float: left; width: 960px; }
-
-.btn-sign {
-	width:460px;
-	margin-bottom:20px;
-	margin:0 auto;
-	padding:20px;
-	border-radius:5px;
-	background: -moz-linear-gradient(center top, #00c6ff, #018eb6);
-    background: -webkit-gradient(linear, left top, left bottom, from(#00c6ff), to(#018eb6));
-	background:  -o-linear-gradient(top, #00c6ff, #018eb6);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#00c6ff', EndColorStr='#018eb6');
-	text-align:center;
-	font-size:36px;
-	color:#fff;
-	text-transform:uppercase;
-}
 
 .btn-sign a { color:#fff; text-shadow:0 1px 2px #161616; }
 

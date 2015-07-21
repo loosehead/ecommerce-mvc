@@ -23,6 +23,7 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 		<url-pattern>/index.jsp</url-pattern>
+			<url-pattern>/listProductsCremes.jsp</url-pattern>
 		<url-pattern>/customer.jsp</url-pattern>
 		<url-pattern>/admin.jsp</url-pattern>
 		<url-pattern>/savePersont.jsp</url-pattern>
@@ -43,6 +44,21 @@
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.swf</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.svg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.woff</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.otf</url-pattern>
+	</servlet-mapping>
+	
+	
+	
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.gif</url-pattern>

@@ -72,6 +72,41 @@ public class MonyLadyController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/customer", method = RequestMethod.GET)
+	public String listProducts(Model model) {
+
+		Person p = new Person();
+		model.addAttribute("person", p);
+
+		List<Person> listPerson = new ArrayList<Person>();
+		p.setLogin("login");
+		p.setPassword("test");
+		p.setPersonId(1);
+		listPerson.add(p);
+		model.addAttribute("listPerson", listPerson);
+
+		return "customer";
+	}
+	
+	@RequestMapping(value = "/listProductsCremes", method = RequestMethod.GET)
+	public String listProductsCremes(Model model) {
+
+		Person p = new Person();
+		model.addAttribute("person", p);
+
+		List<Person> listPerson = new ArrayList<Person>();
+		p.setLogin("login");
+		p.setPassword("test");
+		p.setPersonId(1);
+		listPerson.add(p);
+		model.addAttribute("listPerson", listPerson);
+
+		return "listProductsCremes";
+	}
+	
+	
+	
+	
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String redirect(Model model) {
 		

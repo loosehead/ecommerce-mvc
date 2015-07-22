@@ -1,65 +1,220 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<html lang="en" class="no-js">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<link rel="stylesheet" type="text/css" href="css/demo.css" />
-<link rel="stylesheet" type="text/css" href="css/style2.css" />
-<link rel="stylesheet" type="text/css" href="css/styleAppleMenu.css"/>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>E-Monylady Website</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/prettyPhoto.css" rel="stylesheet">
+<link href="css/price-range.css" rel="stylesheet">
+<link href="css/animate.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+<link rel="shortcut icon" href="images/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="images/ico/apple-touch-icon-57-precomposed.png">
 </head>
-<body style="background-image: url(images/pattern.png), url(images/2.jpg);">
 
-<div id="wrapper">
-    
-        
-    <div id="content">
-		
-        <nav>
-            <ul id="appleNav">
-                <li><a href="http://www.apple.com/" title="Apple"><img src="images/logo.png" alt="Apple Logo" /></a></li>
-                <li><a href="javascript:buildByCathegorie('cosmetique');" title="cosmetique">Cosmetique</a></li>
-                <li><a href="javascript:buildByCathegorie('Electromenager');" title="Electromenager">Electromenager</a></li>
-                <li><a href="javascript:buildByCathegorie('vetements');" title="vetements">Vêtements</a></li>
-                <li><a href="http://www.apple.com/iphone/" title="iPhone">iPhone</a></li>
-                <li><a href="http://www.apple.com/ipad/" title="iPad">iPad</a></li>
-                <li><a href="http://www.apple.com/itunes/" title="iTunes">iTunes</a></li>
-                <li><a href="http://www.apple.com/support/" title="Support">Support</a></li>
-                <li>
-                    <form>
-                        <input type="text" />
-                    </form>
-                </li>
-            </ul>
-        </nav>
-		
-    </div>
+<meta name="description"
+	content="Simple Multi-Item Slider: Category slider with CSS animations" />
+<meta name="keywords"
+	content="jquery plugin, item slider, categories, apple slider, css animation" />
+<meta name="author" content="Codrops" />
 
-	<s:actionerror />
-	<div class="container">
-		<section id="content">
-			<s:form action="loginAction" method="post">
-	
-				<h1>Login</h1>
-				<div>
-					<input type="text" name="login" placeholder="login" required="" id="login" />
+<link rel="stylesheet" type="text/css" href="css/styleWelcome.css" />
+<link rel="stylesheet" type="text/css" href="css/styleAppleMenu.css" />
+<link rel="stylesheet" type="text/css" href="css/stylesadmin.css"
+	tppabs="http://www.xooom.pl/work/magicadmin/css/styles.css"
+	media="screen" />
+<script src="js/modernizr.custom.63321.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+
+
+</head>
+<body>
+
+
+
+
+	<header id="header">
+		<!--header-->
+
+		</div>
+		<!--/header_top-->
+
+		<div class="header-middle">
+			<!--header-middle-->
+			<div class="containerSlider">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo pull-left">
+							<a href="index.jsp"><img src="images/home/logo.png" alt="" /></a>
+						</div>
+
+
+					</div>
+					<div class="col-sm-8">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="#"><i class="fa fa-user"></i> Compte</a></li>
+								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>
+										Mon panier</a></li>
+								<li><a href="login.html"><i class="fa fa-lock"></i>
+										Login</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
-				<div>
-					<input type="password" name="password"placeholder="Password" required="" id="password" />
+			</div>
+		</div>
+		<!--/header-middle-->
+
+		<div class="header-bottom">
+			<!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="index.html" class="active">Home</a></li>
+								<li class="dropdown"><a href="#">Shop<i
+										class="fa fa-angle-down"></i></a>
+									<ul role="menu" class="sub-menu">
+										<li><a href="shop.html">Produits</a></li>
+										<li><a href="product-details.html">Details Produits </a></li>
+										<li><a href="checkout.html">Checkout</a></li>
+										<li><a href="cart.html">Mon Panier</a></li>
+										<li><a href="login.html">Login</a></li>
+									</ul></li>
+								<li class="dropdown"><a href="#">Blog<i
+										class="fa fa-angle-down"></i></a>
+									<ul role="menu" class="sub-menu">
+										<li><a href="blog.html">Blog List</a></li>
+										<li><a href="blog-single.html">Blog Single</a></li>
+									</ul></li>
+								<li><a href="404.html">404</a></li>
+								<li><a href="contact-us.html">Nous Contacter</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="Search" />
+						</div>
+					</div>
 				</div>
-				<div>
-					<input type="submit" value="Se connecter" /> <a href="#">Lost your
-						password?</a> <a href="#">Register</a>
+			</div>
+		</div>
+		<!--/header-bottom-->
+	</header>
+	<!--/header-->
+
+
+
+	<!--  section panier -->
+
+	<section id="form">
+		<!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form">
+						<!--login form-->
+						<h2>Login to your account</h2>
+						<form action="#">
+							<input type="text" placeholder="Name" /> <input type="email"
+								placeholder="Email Address" /> <span> <input
+								type="checkbox" class="checkbox"> Keep me signed in
+							</span>
+							<button type="submit" class="btn btn-default">Login</button>
+						</form>
+					</div>
+					<!--/login form-->
 				</div>
-				
-			</s:form>
-		</section>		<!-- content -->
-	</div>	<!-- container -->
+				<div class="col-sm-1">
+					<h2 class="or">OR</h2>
+				</div>
+				<div class="col-sm-4">
+					<div class="signup-form">
+						<!--sign up form-->
+						<h2>New User Signup!</h2>
+						<form action="#">
+							<input type="text" placeholder="Name" /> <input type="email"
+								placeholder="Email Address" /> <input type="password"
+								placeholder="Password" />
+							<button type="submit" class="btn btn-default">Signup</button>
+						</form>
+					</div>
+					<!--/sign up form-->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--/form-->
+
+	<!--  fin section panier -->
+
+	<div class="header_top">
+		<!--header_top-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="contactinfo">
+						<ul class="nav nav-pills">
+							<li><a href="#"><i class="fa fa-phone"></i> +222 634 19
+									55</a></li>
+							<li><a href="#"><i class="fa fa-envelope"></i>
+									info@monylady.com</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="social-icons pull-right">
+						<ul class="nav navbar-nav">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.scrollUp.min.js"></script>
+		<script src="js/price-range.js"></script>
+		<script src="js/jquery.prettyPhoto.js"></script>
+		<script src="js/main.js"></script>
 </body>
 </html>

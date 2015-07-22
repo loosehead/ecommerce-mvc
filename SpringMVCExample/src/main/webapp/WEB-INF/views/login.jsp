@@ -76,7 +76,7 @@
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-user"></i> Compte</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i>
+								<li><a href="panier.jsp"><i class="fa fa-shopping-cart"></i>
 										Mon panier</a></li>
 								<li><a href="login.html"><i class="fa fa-lock"></i>
 										Login</a></li>
@@ -149,8 +149,8 @@
 						<!--login form-->
 						<h2>Login to your account</h2>
 						<form action="#">
-							<input type="text" placeholder="Name" /> <input type="email"
-								placeholder="Email Address" /> <span> <input
+							 <input type="email" id="idLEmail"
+								placeholder="Email Address" /> <input type="password" id="idLPwd" placeholder="Password" /><span> <input
 								type="checkbox" class="checkbox"> Keep me signed in
 							</span>
 							<button type="submit" class="btn btn-default">Login</button>
@@ -165,9 +165,10 @@
 					<div class="signup-form">
 						<!--sign up form-->
 						<h2>New User Signup!</h2>
-						<form action="#">
-							<input type="text" placeholder="Name" /> <input type="email"
-								placeholder="Email Address" /> <input type="password"
+						<form action="javascript:Ajax_creatUser();">
+							<input id="idULastName" type="text" placeholder="Last Name" /> <input id="idUFirstName" type="text" placeholder="First Name" /> 
+							<input id="idUMail" type="email"
+								placeholder="Email Address" /> <input id="idUPwd" type="password"
 								placeholder="Password" />
 							<button type="submit" class="btn btn-default">Signup</button>
 						</form>

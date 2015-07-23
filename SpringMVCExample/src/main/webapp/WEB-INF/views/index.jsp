@@ -39,10 +39,10 @@
 <meta name="author" content="Codrops" />
 
 <link rel="stylesheet" type="text/css" href="css/styleWelcome.css" />
-<link rel="stylesheet" type="text/css" href="css/styleAppleMenu.css" />
-<link rel="stylesheet" type="text/css" href="css/stylesadmin.css"
+ <link rel="stylesheet" type="text/css" href="css/styleAppleMenu.css" />
+<!-- <link rel="stylesheet" type="text/css" href="css/stylesadmin.css"
 	tppabs="http://www.xooom.pl/work/magicadmin/css/styles.css"
-	media="screen" />
+	media="screen" />  -->
 <script src="js/modernizr.custom.63321.js"></script>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
@@ -55,17 +55,19 @@
 
 		});
 	</script>
-<script src="js/AjaxLoading.js"></script>
+
 	<script>
 	$(document).ready(function() {
 
-		if(personne.Nom != null ){
-			$( "#idpersonne" ).replaceWith("Bienvenue " + personne.Nom + " ");
+		//var p = personne;
+		var test= JSON.parse(localStorage.loginPerson || "{}");;
+		if(test.lastName != null ){
+			$( "#idpersonne" ).replaceWith("<li id='idpersonne'><a href='#'> Bienvenue : " + test.lastName + "</a></li><li id='iddeconnexion'><a href='javascript:lockout();'><i class='fa fa-lock'></i>Deconnexion</a></li>");
 		}
 
 		});
 	</script>
-	
+	<script src="js/AjaxLoading.js"></script>
 
 </head>
 <body>
@@ -112,7 +114,7 @@
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="panier.jsp"><i class="fa fa-shopping-cart"></i> Mon panier</a></li>
-								<li><a href="login.jsp"><i class="fa fa-lock"></i> <b id="idpersonne">Login</b></a></li>
+								<li id="idpersonne"><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>

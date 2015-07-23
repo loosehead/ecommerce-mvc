@@ -10,6 +10,9 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>E-Monylady Website</title>
+
+
+
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -38,13 +41,9 @@
 	content="jquery plugin, item slider, categories, apple slider, css animation" />
 <meta name="author" content="Codrops" />
 
-<link rel="stylesheet" type="text/css" href="css/styleWelcome.css" />
-<link rel="stylesheet" type="text/css" href="css/styleAppleMenu.css" />
-<link rel="stylesheet" type="text/css" href="css/stylesadmin.css"
-	tppabs="http://www.xooom.pl/work/magicadmin/css/styles.css"
-	media="screen" />
 <script src="js/modernizr.custom.63321.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="js/AjaxLoading.js"></script>
 
 
 
@@ -57,37 +56,51 @@
 	<header id="header">
 		<!--header-->
 
-		</div>
-		<!--/header_top-->
-
-		<div class="header-middle">
-			<!--header-middle-->
-			<div class="containerSlider">
+		
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
 							<a href="index.jsp"><img src="images/home/logo.png" alt="" /></a>
 						</div>
-
-
+						<div class="btn-group pull-right">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+									Mauritanie
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">Mauritanie</a></li>
+									<li><a href="#">France</a></li>
+								</ul>
+							</div>
+							
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+									UM
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">UM</a></li>
+									<li><a href="#">EURO</a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Compte</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="panier.jsp"><i class="fa fa-shopping-cart"></i>
-										Mon panier</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i>
-										Login</a></li>
+								<li><a href="panier.jsp"><i class="fa fa-shopping-cart"></i> Mon panier</a></li>
+								<li id="idpersonne"><a href="login.jsp"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!--/header-middle-->
-
+		</div><!--/header-middle-->
+		
 		<div class="header-bottom">
 			<!--header-bottom-->
 			<div class="container">
@@ -148,7 +161,7 @@
 					<div class="login-form">
 						<!--login form-->
 						<h2>Login to your account</h2>
-						<form action="#">
+						<form action="javascript:Ajax_loginUser();">
 							 <input type="email" id="idLEmail"
 								placeholder="Email Address" /> <input type="password" id="idLPwd" placeholder="Password" /><span> <input
 								type="checkbox" class="checkbox"> Keep me signed in

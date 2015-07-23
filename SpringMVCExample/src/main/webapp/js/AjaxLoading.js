@@ -1,5 +1,6 @@
 
-var personne={id:"", Nom:"", prenom :""};
+var personne={userId : "", lastName:"", firstName:"", mail :"", password:""};
+//localStorage.loginPerson='{}';
 function AjaxCaller (action, data, function_success, function_error) {
     
     
@@ -14,8 +15,7 @@ function AjaxCaller (action, data, function_success, function_error) {
             xhr.setRequestHeader("Accept", "application/json");
             xhr.setRequestHeader("Content-Type", "application/json");
         },
-        success: function(datas) {
-            var respContent = "";
+        success: function(datas) {            
              
             function_success(datas);
         	//alert(res.lists);
@@ -34,28 +34,39 @@ function AjaxCaller (action, data, function_success, function_error) {
 
 
 function success_login(pers){
-	this.personne=pers;
+	personne = pers;
+	localStorage.loginPerson = JSON.stringify(pers);
 	window.location.replace("/monylady/index.jsp");
 }
 
+function error_login(error){
+	alert(error);
+} 
+
+function lockout(){
+	localStorage.loginPerson = "{}";
+	window.location.replace("/monylady/index.jsp");
+}
 
 function Ajax_creatUser(){
-	
 	
 	var fisrtN=$("#idUFirstName").val();
 	var lastN=$("#idULastName").val();
 	var email=$("#idUMail").val();
 	var password=$("#idUPwd").val();
-	var personneLigh ={"firsName" : fisrtN, "lastName" :lastN, "mail" :email, "password" : password };
-	AjaxCaller("createUser", personneLigh, success_login, error_login);
+	var dataUser ={"firstName" : fisrtN, "lastName" :lastN, "mail" :email, "password" : password };
+	//var dataUser={"user" : personneLigh };
+	AjaxCaller("createUser", dataUser, success_login, error_login);
+
 }
+
 
 
 function Ajax_loginUser(){
 	var login = $("#idLEmail").val();
 	var password = $("#idLPwd") .val();
-	var dataLogin= {"login" : login, "password" : password};
-	AjaxCaller("loginUser", dataLogin, success_login, error_login);
+	var dataUser ={"firstName" : "", "lastName" :"", "mail" :login, "password" : password };
+	AjaxCaller("loginUser", dataUser, success_login, error_login);
 	
 }
 

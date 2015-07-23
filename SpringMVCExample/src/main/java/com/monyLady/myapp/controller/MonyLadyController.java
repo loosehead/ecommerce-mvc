@@ -27,12 +27,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.monyLady.myapp.ligth.CategoryLigth;
 import com.monyLady.myapp.ligth.PersonLight;
 import com.monyLady.myapp.ligth.ProductLigth;
+import com.monyLady.myapp.ligth.UsersLight;
 import com.monyLady.myapp.metiers.PersonManager;
 import com.monyLady.myapp.metiers.PersonManagerImpl;
 import com.monyLady.myapp.metiers.ProductManager;
+import com.monyLady.myapp.metiers.UsersManager;
 import com.monyLady.myapp.model.Person;
 import com.monyLady.myapp.model.Product;
 import com.monyLady.myapp.model.Subcategory;
+import com.monyLady.myapp.model.Users;
 
 @Controller
 public class MonyLadyController {
@@ -43,6 +46,9 @@ public class MonyLadyController {
 	private ProductManager productManager;
 	@Autowired
     ServletContext context;
+	
+	@Autowired
+	private UsersManager usersManager;
 
 	private static Logger logger = Logger.getLogger(MonyLadyController.class);
 
@@ -53,7 +59,20 @@ public class MonyLadyController {
 
 		return "customer";
 	}
+	
+	
+	@RequestMapping(value = "/createUser", method = RequestMethod.GET)
+	public @ResponseBody  UsersLight createUser(@ModelAttribute("user")UsersLight user) {
+		
+		return this.usersManager.toUserLight(this.usersManager.saveUser(this.usersManager.toUsers(user)));	
+	}
 
+	
+	@RequestMapping(value = "/loginUser", method = RequestMethod.GET)
+	public @ResponseBody  UsersLight loginUser(@ModelAttribute("user")UsersLight user) {
+		
+		return this.usersManager.toUserLight(this.usersManager.getUserByLogin(user.getMail(), user.getPassword()));	
+	}
 	
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)

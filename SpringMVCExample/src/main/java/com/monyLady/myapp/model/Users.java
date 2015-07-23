@@ -71,9 +71,7 @@ public class Users implements java.io.Serializable {
 		this.password = password;
 	}
 
-	public void setPasswod(String password) {
-		this.password = password;
-	}
+	
 
 	@Column(name = "mail", nullable = false, length = 15)
 	public String getMail() {

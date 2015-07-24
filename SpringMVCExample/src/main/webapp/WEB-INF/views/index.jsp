@@ -68,6 +68,15 @@
 		});
 	</script>
 	<script src="js/AjaxLoading.js"></script>
+	
+	<script src="js/jquery.catslider.js"></script>
+	<script>
+	$(document).ready(function() {
+
+			AjaxCaller("loadRandomProduct", null, success_loadProduct, error_loadProduct);
+
+		});
+	</script>
 
 </head>
 <body>
@@ -257,9 +266,9 @@
 						<div class="carousel-inner">
 							<div class="item active">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<h1><span>E</span>-MONYLADY</h1>
+									<h2>Site de vente en ligne en Mauritanie</h2>
+									<p>Précommander  - Suivre Votre commande - Prendre rendez-vous</p>
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6">
@@ -269,9 +278,9 @@
 							</div>
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<h1><span>E</span>-MONYLADY</h1>
+									<h2>Site de vente en ligne en Mauritanie</h2>
+									<p>Précommander  - Suivre Votre commande - Prendre rendez-vous</p>
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6">
@@ -282,9 +291,9 @@
 							
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<h1><span>E</span>-MONYLADY</h1>
+									<h2>Site de vente en ligne en Mauritanie</h2>
+									<p>Précommander  - Suivre Votre commande - Prendre rendez-vous</p>
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6">

@@ -143,10 +143,10 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr class="cart_menu">
-							<td class="image">Item</td>
+							<td class="image">Article</td>
 							<td class="description"></td>
-							<td class="price">Price</td>
-							<td class="quantity">Quantity</td>
+							<td class="price">Prix</td>
+							<td class="quantity">Quantité</td>
 							<td class="total">Total</td>
 							<td></td>
 						</tr>

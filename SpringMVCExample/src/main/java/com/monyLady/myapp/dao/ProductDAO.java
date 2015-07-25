@@ -22,4 +22,6 @@ public interface ProductDAO {
 
 	public void saveImage(File image);
 
+	public List<Product> listProductRandom();
+
 }

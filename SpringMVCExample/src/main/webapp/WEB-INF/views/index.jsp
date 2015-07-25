@@ -39,8 +39,8 @@
 <meta name="author" content="Codrops" />
 
 <link rel="stylesheet" type="text/css" href="css/styleWelcome.css" />
- <link rel="stylesheet" type="text/css" href="css/styleAppleMenu.css" />
-<!-- <link rel="stylesheet" type="text/css" href="css/stylesadmin.css"
+ <!--<link rel="stylesheet" type="text/css" href="css/styleAppleMenu.css" />
+ <link rel="stylesheet" type="text/css" href="css/stylesadmin.css"
 	tppabs="http://www.xooom.pl/work/magicadmin/css/styles.css"
 	media="screen" />  -->
 <script src="js/modernizr.custom.63321.js"></script>
@@ -470,7 +470,7 @@
 				</div>
 				
 				<div class="col-sm-9 padding-right">
-					<div class="features_items"><!--features_items-->
+					<div class="features_items" id="prodItems"><!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">

@@ -74,6 +74,12 @@ public class MonyLadyController {
 		return this.usersManager.toUserLight(this.usersManager.getUserByLogin(user.getMail(), user.getPassword()));	
 	}
 	
+	@RequestMapping(value = "/loadRandomProduct", method = RequestMethod.GET)
+	public @ResponseBody  List<ProductLigth> loadRandomProduct() {
+		
+		return this.productManager.listProductRandom();	
+	}
+	
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String listPerson(Model model) {

@@ -20,18 +20,30 @@ public class ProductLigth {
 	private BigDecimal price;
 	private String description;
 	private int qtyOnHand;
-	private File image; 
-	public ProductLigth(String subcategoryName, String productName,
-			String modelNumber, BigDecimal price, String description,
-			int qtyOnHand, File image) {
+	private File image;
+	private String imageName;
+	
+	
+	public ProductLigth(String subcategoryName, String categoryName,
+			String productName, String modelNumber, BigDecimal price,
+			String description, int qtyOnHand, File image, String imageName) {
 		super();
 		this.subcategoryName = subcategoryName;
+		this.categoryName = categoryName;
 		this.productName = productName;
 		this.modelNumber = modelNumber;
 		this.price = price;
 		this.description = description;
 		this.qtyOnHand = qtyOnHand;
 		this.image = image;
+		this.imageName = imageName;
+	}
+	
+	public String getImageName() {
+		return imageName;
+	}
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 	public File getImage() {
 		return image;

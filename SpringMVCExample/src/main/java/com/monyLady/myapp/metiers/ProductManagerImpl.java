@@ -1,6 +1,7 @@
 package com.monyLady.myapp.metiers;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -71,6 +72,7 @@ public class ProductManagerImpl implements ProductManager {
 		p.setQtyOnHand(product.getQtyOnHand());
 		p.setSubcategoryName(product.getSubcategory().getSubcategoryName());
 		p.setCategoryName(product.getSubcategory().getCategory().getCategoryName());
+		p.setImageName(product.getImagePath());
 		return p;
 	}
 
@@ -86,6 +88,16 @@ public class ProductManagerImpl implements ProductManager {
 		// TODO Auto-generated method stub
 		this.productDAO.saveImage(image);
 		
+	}
+
+	@Override
+	public List<ProductLigth> listProductRandom() {
+		// TODO Auto-generated method stub
+		ArrayList<ProductLigth> listP = new ArrayList<ProductLigth>();
+		for(Product p : productDAO.listProductRandom()){
+			listP.add(this.toProductLight(p));
+		}
+		return listP;
 	}
 
 

@@ -146,4 +146,15 @@ public class ProductDAOImpl implements ProductDAO {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	@Transactional
+	public List<Product> listProductRandom() {
+		// This method return list of product in database
+			return this.sessionFactory.getCurrentSession()
+					.createQuery("from Product p order by rand()").setMaxResults(6).list();
+		
+		
+	}
+
 }

@@ -18,5 +18,6 @@ public interface ProductManager {
 	public Set<Product> getProductBySubcategorie(String categoryName,
 			String subcategoryName);
 	public void saveImage(File image);
+	public List<ProductLigth> listProductRandom();
 
 }

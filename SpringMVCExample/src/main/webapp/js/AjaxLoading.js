@@ -107,7 +107,7 @@ function success_loadProduct(listProducts) {
 				+ p.imageName
 				+ "' alt=''/>"
 				+ "<h2>"
-				+ p.price
+				+ p.price+"€"
 				+ "</h2>"
 				+ "<p>"
 				+ p.description

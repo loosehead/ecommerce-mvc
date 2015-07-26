@@ -45,7 +45,17 @@
 	media="screen" />
 <script src="js/modernizr.custom.63321.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="js/AjaxLoading.js"></script>
+<script>
 
+	$(document).ready(function() {
+		
+		
+			updatePannier(JSON.parse(localStorage.pannier));
+		
+
+		});
+</script>
 
 
 </head>
@@ -151,7 +161,7 @@
 							<td></td>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="listProdBuy">
 						<tr>
 							<td class="cart_product">
 								<a href=""><img src="images/cart/one.png" alt=""></a>

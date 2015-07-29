@@ -8,12 +8,13 @@ var personne = {
 // localStorage.loginPerson='{}';
 //localStorage.pannier =  [];
 
-var panierStored= localStorage["pannier"];
-if(panierStored == null || panierStored ==""){
-
-	localStorage.removeItem("pannier");
-	localStorage["pannier"] = new Array();	
-}
+//var panierStored= localStorage["pannier"];
+//if(panierStored == null || panierStored ==""){
+//
+//	localStorage.removeItem("pannier");
+//	var tempPannier = [];
+//	localStorage["pannier"] =  tempPannier;
+//}
 
 	
 
@@ -88,12 +89,19 @@ function maj_pannier(produitName) {
 	var storedproduits = JSON.parse(localStorage["tempProduit"]);
 	for (i = 0, len =storedproduits.length; i < len; i++) {
 		if(storedproduits[i].productName == produitName){
-			var existingEntries = localStorage["pannier"];
-		    if(existingEntries == null | existingEntries =="" ) existingEntries = [];
+			//var existingEntry = localStorage["pannier"];
+			
+		    if(localStorage.getItem("pannier") == null || localStorage.getItem("pannier") =="" ) {
+		    	var noTexistingEntries = [];
+		    	noTexistingEntries.push(storedproduits[i]);
+		    	localStorage.setItem("pannier", JSON.stringify(noTexistingEntries))
+		    } else{
+		    	var existingEntries = JSON.parse(localStorage.getItem("pannier"));
+		    	existingEntries.push(storedproduits[i]);
+			    localStorage.setItem("pannier", JSON.stringify(existingEntries));		    	
+		    }
 		    
-		    // Save allEntries back to local storage
-		    existingEntries.push(storedproduits[i]);
-		    localStorage.setItem("pannier", JSON.stringify(existingEntries));
+		    
 		}
 		
 	}
@@ -126,7 +134,7 @@ function success_loadProduct(listProducts) {
 				+ "<div class='product-image-wrapper'>"
 				+ "<div class='single-products'>"
 				+ "<div class='productinfo text-center'>"
-				+ "<img src='images/tempHayat/"
+				+ "<img src='images/tempHayat/bigImages/"
 				+ p.imageName
 				+ "' alt=''/>"
 				+ "<h2>"
@@ -139,19 +147,6 @@ function success_loadProduct(listProducts) {
 				+ "<a href='javascript:maj_pannier(\""
 				+ p.productName
 				+ "\");' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Commander</a>"
-				+ "</div>"
-				+ "<div class='product-overlay'>"
-				+ "<div class='overlay-content'>"
-				+ "<h2>"
-				+ p.price
-				+ "</h2>"
-				+ "<p>"
-				+ p.description
-				+ "</p>"
-				+ "<a href='javascript:maj_pannier(\""
-				+ p.productName
-				+ "\");' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Commander</a>"
-				+ "</div>"
 				+ "</div>"
 				+ "</div>"
 				+ "<div class='choose'>"
@@ -175,7 +170,7 @@ function updatePannier(contentPan) {
 		_htmlProductListPan = _htmlProductListPan
 		+"<tr>"
 				+ "<td class='cart_product'>"
-				+ "<a href=''><img src='images/tempHayat/"+p.imageName+"' alt=''></a>"
+				+ "<a href=''><img src='images/tempHayat/smallImages/"+p.imageName+"' alt=''></a>"
 				+ "</td>"
 				+ "<td class='cart_description'>"
 				+ "<h4><a href=''>Colorblock Scuba</a></h4>"

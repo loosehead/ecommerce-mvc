@@ -516,7 +516,7 @@
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Détails</a></li>
 									</ul>
 								</div>
 							</div>
@@ -541,7 +541,7 @@
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Détails</a></li>
 									</ul>
 								</div>
 							</div>
@@ -567,7 +567,7 @@
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Détails</a></li>
 									</ul>
 								</div>
 							</div>
@@ -593,7 +593,7 @@
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Détails</a></li>
 									</ul>
 								</div>
 							</div>
@@ -618,7 +618,7 @@
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Détails</a></li>
 									</ul>
 								</div>
 							</div>
@@ -627,6 +627,19 @@
 					</div><!--features_items-->
 					
 					
+                        <a class="next_prod" href="#">
+                            Voir Produits suivants
+                        </a>
+                   
+                    
+                        <a class="prev_prod" href="#">
+                            Voir Produits suivants
+                        </a>
+                    
+					<br/>
+					<br/>
+					<br/>
+					<br/>
 					
 					<div class="recommended_items"><!--recommended_items-->
 						<h2 class="title text-center">recommended items</h2>

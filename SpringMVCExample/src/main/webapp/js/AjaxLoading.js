@@ -18,7 +18,9 @@ var personne = {
 
 	
 
-
+function tests(){
+	
+}
 function AjaxCaller(action, data, function_success, function_error) {
 
 	$.ajax({
@@ -83,6 +85,11 @@ function Ajax_creatUser() {
 	// var dataUser={"user" : personneLigh };
 	AjaxCaller("createUser", dataUser, success_login, error_login);
 
+}
+
+function loadByCategory(category, subcategory){
+	var data = {"categoryName": category, "subcategoryName":subcategory};
+	AjaxCaller("allProductBySubcategoryName", data, success_loadProduct, error_loadProduct);
 }
 
 function maj_pannier(produitName) {
@@ -154,7 +161,7 @@ function success_loadProduct(listProducts) {
 				+ "<li><a href='javascript:maj_pannier(\""
 				+ p.productName
 				+ "\")'><i class='fa fa-plus-square'></i>Add to wishlist</a></li>"
-				+ "<li><a href='#'><i class='fa fa-plus-square'></i>Add to compare</a></li>"
+				+ "<li><a href='#'><i class='fa fa-plus-square'></i>Détails</a></li>"
 				+ "</ul></div></div>" + "</div>";
 
 	}

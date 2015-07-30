@@ -180,16 +180,16 @@
 		<div class="main">
 			<div id="mi-slider" class="mi-slider">
 				<ul>
-					<li><a href="customer.jsp"><img
+					<li><a onclick="javascript:loadByCategory('COSMETIQUES','Maquillage Bio' );" href="#idDisplayCat"><img
 							src="images/Cosmetiques/1.jpg" alt="img01">
 							<h4>Maquillage Bio</h4></a></li>
-					<li><a href="listProductsCremes.jsp"><img
+					<li><a href="#idDisplayCat" onclick="javascript:loadByCategory('COSMETIQUES','Cremes' );"><img
 							src="images/Cosmetiques/2.jpg" alt="img02">
 							<h4>Cremes</h4></a></li>
-					<li><a href="#"><img src="images/Cosmetiques/3.jpg"
+					<li><a  href="#idDisplayCat" onclick="javascript:loadByCategory('COSMETIQUES','Make up' );"><img src="images/Cosmetiques/3.jpg"
 							alt="img03">
 							<h4>Make up</h4></a></li>
-					<li><a href="#"><img src="images/Cosmetiques/42.jpg"
+					<li><a  href="#idDisplayCat" onclick="javascript:loadByCategory('COSMETIQUES','Parfums' );"><img src="images/Cosmetiques/42.jpg"
 							alt="img04">
 							<h4>Parfums</h4></a></li>
 				</ul>
@@ -338,10 +338,10 @@
 								<div id="CosmetiquesSide" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul>
-											<li><a href="#">Maquillages Bio </a></li>
-											<li><a href="#">Crèmes </a></li>
-											<li><a href="#">Make up </a></li>
-											<li><a href="#">Parfums</a></li>
+											<li><a onclick="javascript:loadByCategory('COSMETIQUES','Maquillage Bio' );" href="#idDisplayCat">Maquillages Bio </a></li>
+											<li><a onclick="javascript:loadByCategory('COSMETIQUES','Crèmes' );" href="#idDisplayCat">Crèmes </a></li>
+											<li><a onclick="javascript:loadByCategory('COSMETIQUES','Make up' );" href="#idDisplayCat">Make up </a></li>
+											<li><a onclick="javascript:loadByCategory('COSMETIQUES','Parfums' );" href="#idDisplayCat">Parfums</a></li>
 										</ul>
 									</div>
 								</div>
@@ -468,7 +468,7 @@
 					</div>
 				</div>
 				
-				<div class="col-sm-9 padding-right">
+				<div class="col-sm-9 padding-right" id="idDisplayCat">
 					<div class="features_items" id="prodItems"><!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
 						<div class="col-sm-4">
@@ -491,7 +491,7 @@
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Détails</a></li>
 									</ul>
 								</div>
 							</div>

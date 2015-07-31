@@ -89,6 +89,8 @@ function Ajax_creatUser() {
 
 function loadByCategory(category, subcategory){
 	var data = {"categoryName": category, "subcategoryName":subcategory};
+	localStorage.setItem("_borneInflistProduits", 0);
+	localStorage.setItem("_borneSuplistProduits", 0);
 	AjaxCaller("allProductBySubcategoryName", data, success_loadProduct, error_loadProduct);
 }
 

@@ -883,7 +883,11 @@ h2.title {
 }
 
 .productinfo img{
-  width: 100%;
+  /*width: 100%;*/
+  border:0;
+	margin:10px auto;
+	width:130px;
+	height:160px;
 }
 
 .productinfo{
@@ -2668,7 +2672,7 @@ h2.title {
 	right:15px;
 	top:50%;
 	margin-top:-9px;
-	margin-right: 138px;
+	margin-right: 154px;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	-o-border-radius: 50%;

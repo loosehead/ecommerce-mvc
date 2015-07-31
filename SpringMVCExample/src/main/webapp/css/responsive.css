@@ -136,9 +136,19 @@
 }
 
 .header-middle .col-sm-4 {
-	display: inline-block;
-	overflow: inherit;
-	width: 100%;
+	/*display: inline-block;
+	width: 100%;*/
+	display: block;
+	overflow: inherit;		
+    float: left;
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+    border: 1px solid #494949;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    overflow: hidden;
 }
 
 .social-icons ul li a i {

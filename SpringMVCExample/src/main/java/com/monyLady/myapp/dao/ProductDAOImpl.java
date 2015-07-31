@@ -152,7 +152,7 @@ public class ProductDAOImpl implements ProductDAO {
 	public List<Product> listProductRandom() {
 		// This method return list of product in database
 			return this.sessionFactory.getCurrentSession()
-					.createQuery("from Product p order by rand()").setMaxResults(6).list();
+					.createQuery("from Product p order by rand()").list();
 		
 		
 	}

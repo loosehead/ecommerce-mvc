@@ -406,7 +406,17 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3,'test','test','test@test','test'),(4,'test','test','test@test','test'),(5,'test','test','test@test','test'),(6,'test','test','test@test','test'),(7,'dfdfdf','fdsff','dfdf@dfdf.fr','sdsdsdsdsd'),(8,'sdsdsdsd','sdsd','sds@sdfr.fr','sdsdsdsd'),(9,'sds','dsdsd','qqze@sdr.fr','sdsdsdsdsd'),(10,'dfdf','fdfd','dfdf@dfr.fr','dffdf'),(11,'sdsds','sdsds','sds@dfr.fr','sdsd'),(12,'dfdf','fdfd','dfd@frt.fr','cxcxcx'),(13,'test','test','test@test.fr','test'),(14,'sdsdsd','sdsdsd','sdsds@st.fr','sdssdsds'),(15,'dfdf','dfdf','xcvxv@gh.gt','aaaaa'),(16,'sdsd','dsds','sdsd@df.fr','xccxc'),(17,'dfdfd','dfdfd','dfdfd@sd.fr','sdsdsdsd'),(18,'Aziz','Abou','abou@free.fr','Abou');
+INSERT INTO `users` VALUES 
+(3,'test','test','test@test','test'),
+(4,'test','test','test@test','test'),
+(5,'test','test','test@test','test'),
+(6,'test','test','test@test','test'),
+(7,'dfdfdf','fdsff','dfdf@dfdf.fr','sdsdsdsdsd'),
+(8,'sdsdsdsd','sdsd','sds@sdfr.fr','sdsdsdsd'),
+(9,'sds','dsdsd','qqze@sdr.fr','sdsdsdsdsd'),
+(10,'dfdf','fdfd','dfdf@dfr.fr','dffdf'),(
+11,'sdsds','sdsds','sds@dfr.fr','sdsd'),(
+12,'dfdf','fdfd','dfd@frt.fr','cxcxcx'),(13,'test','test','test@test.fr','test'),(14,'sdsdsd','sdsdsd','sdsds@st.fr','sdssdsds'),(15,'dfdf','dfdf','xcvxv@gh.gt','aaaaa'),(16,'sdsd','dsds','sdsd@df.fr','xccxc'),(17,'dfdfd','dfdfd','dfdfd@sd.fr','sdsdsdsd'),(18,'Aziz','Abou','abou@free.fr','Abou');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 

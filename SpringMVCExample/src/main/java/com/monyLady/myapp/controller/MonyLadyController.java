@@ -1,22 +1,14 @@
 package com.monyLady.myapp.controller;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletContext;
 
 import org.apache.log4j.Logger;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.dao.support.DaoSupport;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,18 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.monyLady.myapp.ligth.CategoryLigth;
 import com.monyLady.myapp.ligth.PersonLight;
 import com.monyLady.myapp.ligth.ProductLigth;
 import com.monyLady.myapp.ligth.UsersLight;
 import com.monyLady.myapp.metiers.PersonManager;
-import com.monyLady.myapp.metiers.PersonManagerImpl;
 import com.monyLady.myapp.metiers.ProductManager;
 import com.monyLady.myapp.metiers.UsersManager;
 import com.monyLady.myapp.model.Person;
 import com.monyLady.myapp.model.Product;
-import com.monyLady.myapp.model.Subcategory;
-import com.monyLady.myapp.model.Users;
 
 @Controller
 public class MonyLadyController {
@@ -62,7 +50,7 @@ public class MonyLadyController {
 	
 	
 	@RequestMapping(value = "/createUser", method = RequestMethod.GET)
-	public @ResponseBody  UsersLight createUser(@ModelAttribute("user")UsersLight user) {
+	public @ResponseBody  UsersLight createUser(@ModelAttribute("user")UsersLight user) throws MessagingException {
 		
 		return this.usersManager.toUserLight(this.usersManager.saveUser(this.usersManager.toUsers(user)));	
 	}

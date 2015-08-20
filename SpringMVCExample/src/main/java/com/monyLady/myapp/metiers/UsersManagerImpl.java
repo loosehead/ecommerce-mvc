@@ -1,5 +1,6 @@
 package com.monyLady.myapp.metiers;
 
+import javax.mail.MessagingException;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +9,15 @@ import org.springframework.stereotype.Service;
 import com.monyLady.myapp.dao.UsersDAO;
 import com.monyLady.myapp.ligth.UsersLight;
 import com.monyLady.myapp.model.Users;
+
+
 @Service
 public class UsersManagerImpl implements UsersManager {
 	
 	@Autowired
 	private UsersDAO usersDAO;
-
+	
+	
 	public UsersDAO getUsersDAO() {
 		return usersDAO;
 	}
@@ -28,9 +32,16 @@ public class UsersManagerImpl implements UsersManager {
 		return user;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	@Transactional
-	public Users saveUser(Users user) {
+	public Users saveUser(Users user) throws MessagingException {
+//		Mail mail= new Mail();
+//    	mail.setMailFrom("hayatt.bechir@gmail.com");
+//		mail.setMailTo("aboubecrine@gmail.com");
+//		mail.setMailSubject("Subject - Send Email using Spring Velocity Template");
+//		mail.setTemplateName("emailtemplate.vm");
+//		sendMail.sendMail(mail);
 		return usersDAO.saveUser(user);
 		
 	}

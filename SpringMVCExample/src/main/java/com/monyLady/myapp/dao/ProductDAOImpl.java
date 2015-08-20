@@ -2,7 +2,6 @@ package com.monyLady.myapp.dao;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,7 +10,6 @@ import java.util.List;
 import java.util.Set;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletOutputStream;
 import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
@@ -23,7 +21,6 @@ import org.springframework.stereotype.Repository;
 import com.monyLady.myapp.model.Category;
 import com.monyLady.myapp.model.Product;
 import com.monyLady.myapp.model.Subcategory;
-import com.mysql.jdbc.log.Log;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {

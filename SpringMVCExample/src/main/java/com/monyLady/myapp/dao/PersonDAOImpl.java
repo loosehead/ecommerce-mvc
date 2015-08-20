@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import com.monyLady.myapp.model.Person;
 import com.monyLady.myapp.model.SecurityQuestion;
-import com.monyLady.myapp.model.Users;
 
 
 @Repository

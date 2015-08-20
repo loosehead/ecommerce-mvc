@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import com.monyLady.myapp.dao.PersonDAO;
 import com.monyLady.myapp.ligth.PersonLight;
 import com.monyLady.myapp.model.Person;
-import com.monyLady.myapp.model.SecurityQuestion;
 
 @Service
 public class PersonManagerImpl implements PersonManager {
